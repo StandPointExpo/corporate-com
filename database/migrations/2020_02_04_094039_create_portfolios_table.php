@@ -15,14 +15,11 @@ class CreatePortfoliosTable extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('client_id')->nullable();;
-            $table->string('title');
+            $table->string('title')->nullable();
+            $table->string('client')->nullable();
             $table->string('description')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
-
-            $table->foreign('client_id')->references('id')->on('clients')
-                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

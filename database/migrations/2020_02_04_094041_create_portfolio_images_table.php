@@ -15,7 +15,7 @@ class CreatePortfolioImagesTable extends Migration
     {
         Schema::create('portfolio_images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('portfolio_id');
+            $table->unsignedBigInteger('portfolio_id');
             $table->string('file');
             $table->string('title')->nullable();
             $table->string('description')->nullable();

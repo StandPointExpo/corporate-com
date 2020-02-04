@@ -8,15 +8,9 @@ use App\Client;
 
 class Portfolio extends Model
 {
-    public $fillable = ['client_id', 'title', 'description', 'active'];
+    public $fillable = ['title', 'description', 'active', 'client'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function client()
-    {
-        return $this->belongsTo(Client::class);
-    }
+    protected $with = ['images'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
