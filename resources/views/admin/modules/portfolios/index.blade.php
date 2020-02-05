@@ -18,6 +18,7 @@
             <thead>
             <tr>
                 <th>Название</th>
+                <th>Обложка</th>
                 <th>Клиент</th>
                 <th>Описание</th>
                 <th>Контент</th>
@@ -30,6 +31,9 @@
             @foreach ($portfolio as $item)
                 <tr>
                     <td>{{ $item->title }}</td>
+                    <td>
+                        <img src="{{ $item->admin_main_image_url }}" alt="">
+                    </td>
                     <td>{{ $item->client }}</td>
                     <td>{{ $item->description }}</td>
                     <td>

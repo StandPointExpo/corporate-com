@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use App\Portfolio;
 
 class PortfolioImage extends Model
@@ -31,6 +31,6 @@ class PortfolioImage extends Model
 
     public function scopeMainImage(Builder $query)
     {
-        return $this->where('is_main', true);
+        return $query->where('is_main', true);
     }
 }

@@ -19,6 +19,7 @@ class PortfolioImageObserver
         }
     }
 
+    //TODO CREATE PortfolioObserver with Delete method with clear storage
     /**
      * Handle the portfolio image "deleted" event.
      *
