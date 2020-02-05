@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 
+@section('pagenav', 'Портфолио')
+
 @section('content')
     <div class="panel">
         <div class="panel-heading">
@@ -18,6 +20,7 @@
                 <th>Название</th>
                 <th>Клиент</th>
                 <th>Описание</th>
+                <th>Контент</th>
                 <th></th>
             </tr>
             </thead>
@@ -29,6 +32,12 @@
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->client }}</td>
                     <td>{{ $item->description }}</td>
+                    <td>
+                        @include('admin.partials.buttons._redirect_link', [
+                            'url'   => route('admin.portfolios.images.index', ['portfolio' => $item]),
+                            'title' => 'Перейти к изображениям'
+                        ])
+                    </td>
                     <td>
                         @include('admin.partials.buttons._edit_link', [
                             'url' => route('admin.portfolios.edit', ['portfolio' => $item])])

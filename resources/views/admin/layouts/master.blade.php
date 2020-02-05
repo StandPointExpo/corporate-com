@@ -6,8 +6,9 @@
 @include('admin.layouts._navigation')
 
 <!-- Content -->
-<div class="content" id="app">
+<div class="px-content" id="app">
     <div class="page-header">
+        <h1>@yield('pagenav', 'Admin subtitle')</h1>
     </div>
 
     <div>
