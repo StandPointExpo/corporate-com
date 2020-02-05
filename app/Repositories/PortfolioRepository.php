@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Portfolio;
-use App\PortfolioImage;
 use Illuminate\Http\UploadedFile;
+use App\PortfolioImage;
+use App\Portfolio;
+use Illuminate\Support\Str;
 
 class PortfolioRepository
 {
@@ -16,6 +17,11 @@ class PortfolioRepository
     public function preview()
     {
         return Portfolio::take(20)->get();
+    }
+
+    public function images(Portfolio $portfolio)
+    {
+        return $portfolio->images()->get();
     }
 
     public function store(array $data)
@@ -31,13 +37,15 @@ class PortfolioRepository
     public function storeImage(Portfolio $portfolio, UploadedFile $file)
     {
         $path = $this->uploadImage($portfolio, $file);
+
+        return $portfolio->images()->create(['file' => $path]);
     }
 
     public function uploadImage(Portfolio $portfolio, UploadedFile $file)
     {
         $storage_path   = sprintf("public/uploads/portfolios/%d", $portfolio->id);
         $filename       = sprintf('%d_%s.%s', optional(request()->user())->id ?: 'N',
-            str_random(10), $file->getClientOriginalExtension());
+            Str::random(10), $file->getClientOriginalExtension());
 
         $path = $file->storeAs($storage_path, $filename);
 

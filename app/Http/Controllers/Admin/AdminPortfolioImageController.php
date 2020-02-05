@@ -17,14 +17,15 @@ class AdminPortfolioImageController extends Controller
         $this->repository = $repository;
     }
 
-    public function index()
+    public function index(Portfolio $portfolio)
     {
-        return view('admin.modules.portfolios.index', $this->repository->all());
+        $images = $this->repository->images($portfolio);
+        return view('admin.modules.portfolios_images.index', compact('portfolio','images'));
     }
 
-    public function show(Portfolio $portfolio)
+    public function create(Portfolio $portfolio, PortfolioImage $portfolioImage)
     {
-        return view('admin.modules.portfolios.index', compact($portfolio));
+        return view('admin.modules.portfolios_images.create', compact('portfolio', 'portfolioImage'));
     }
 
     /**
@@ -34,11 +35,16 @@ class AdminPortfolioImageController extends Controller
      */
     public function store(Portfolio $portfolio, Request $request)
     {
-        foreach ($request->allFiles()['files']  as $file) {
+
+    }
+
+    public function storeFiles(Portfolio $portfolio, Request $request)
+    {
+        foreach ($request->allFiles()['images']  as $file) {
             $this->repository->storeImage($portfolio, $file);
         }
 
-        return redirect()->route();
+        return redirect()->route('admin.portfolios.images.index', compact('portfolio'));
     }
 
     /**
