@@ -34,15 +34,11 @@
                     <td><img src="{{ $item->admin_preview_url }}" alt=""></td>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->description }}</td>
-                    <td>
-                        @include('admin.modules.portfolios_images.partials._form_toggle',[
-                            'url'       => '',
-                            'status'    => $item->is_main
-                        ])
-                    </td>
+                    <td>{!! $item->is_main ? "<i class='fas fa-check-circle'></i>" : '' !!} </td>
                     <td>
                         @include('admin.partials.buttons._edit_link', [
-                            'url' => route('admin.portfolios.images.edit', [
+                            'target'    => '_self',
+                            'url'       => route('admin.portfolios.images.edit', [
                                 'portfolio' => $portfolio,
                                 'image'     => $item])
                             ])

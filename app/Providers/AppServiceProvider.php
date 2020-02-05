@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Observers\PortfolioImageObserver;
 use Illuminate\Support\ServiceProvider;
+use App\PortfolioImage;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        PortfolioImage::observe(PortfolioImageObserver::class);
     }
 }

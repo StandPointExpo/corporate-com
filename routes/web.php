@@ -35,5 +35,5 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'as' => 'admin.'], f
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('admin');
 });

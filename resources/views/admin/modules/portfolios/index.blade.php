@@ -40,7 +40,8 @@
                     </td>
                     <td>
                         @include('admin.partials.buttons._edit_link', [
-                            'url' => route('admin.portfolios.edit', ['portfolio' => $item])])
+                            'target'    => '_self',
+                            'url'       => route('admin.portfolios.edit', ['portfolio' => $item])])
                         @include('admin.partials._destroy', [
                             'url' => route('admin.portfolios.destroy', ['portfolio' => $item])])
                     </td>

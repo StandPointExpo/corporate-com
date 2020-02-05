@@ -1,9 +1,7 @@
 
 @component('admin.components._group', ['el' => 'is_main'])
-    <div class="checkbox">
-        <label>
-            {{ Form::checkbox('is_main', 1, $status) }}
-            Сделать обложкой
-        </label>
+    <div class="form-control">
+        {{ Form::checkbox('is_main', 1, $status, [ 'id' => 'is_main']) }}
+        {{ Form::label('is_main', 'Сделать обложкой') }}
     </div>
 @endcomponent
