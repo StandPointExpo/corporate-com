@@ -10,6 +10,14 @@
     <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
 
     <!-- Core stylesheets -->
+    <link href=" {{ asset('pixeladmin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('pixeladmin/css/pixeladmin.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('pixeladmin/css/widgets.min.css') }}" rel="stylesheet" type="text/css">
 
+    <!-- Theme -->
+    <link href="{{ asset('pixeladmin/css/themes/clean.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('pixeladmin/css/custom.css') }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ asset('pixeladmin/fontawesome/css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css">
     @stack('css')
 </head>

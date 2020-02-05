@@ -1,0 +1,22 @@
+.px-content {
+  overflow: hidden;
+  overflow-x: auto; }
+
+table.custom-table td {
+  text-align: center; }
+table.custom-table th {
+  text-align: center;
+  width: 6%; }
+table.custom-table th:first-child {
+  text-align: left; }
+table.custom-table td:first-child {
+  text-align: left; }
+table.custom-table th:last-child {
+  text-align: right; }
+table.custom-table td:last-child {
+  text-align: right; }
+
+.form-inline {
+  display: inline; }
+
+/*# sourceMappingURL=custom.css.map */

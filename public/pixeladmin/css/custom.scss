@@ -1,0 +1,30 @@
+.px-content {
+  overflow: hidden;
+  overflow-x: auto;
+}
+table.custom-table {
+  td {
+    text-align: center;
+  }
+  th {
+    text-align: center;
+    width: 6%;
+  }
+
+  th:first-child {
+    text-align: left;
+  }
+  td:first-child {
+    text-align: left;
+  }
+  th:last-child {
+    text-align: right;
+  }
+  td:last-child {
+    text-align: right;
+  }
+}
+
+.form-inline {
+  display: inline;
+}
