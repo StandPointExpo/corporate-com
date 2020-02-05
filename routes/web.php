@@ -29,10 +29,10 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'as' => 'admin.'], f
             Route::post('files', [AdminPortfolioImageController::class, 'storeFiles'])->name('store_files');
        });
     });
-    Route::resource('partners', 'Admin\AdminPartnerController'); //TODO MAYBE перенести всё в единыеSettings
-    Route::resource('contacts', 'Admin\AdminContactController');//TODO MAYBE перенести всё в единыеSettings
-    Route::resource('pages', 'Admin\AdminPageController');      //TODO MAYBE перенести всё в единыеSettings
-                                                                // TODO CREATE SETTINGS MODEL INSTEAD OF THIS?
+    Route::resource('partners', 'Admin\AdminPartnerController');
+    Route::resource('contacts', 'Admin\AdminContactController');
+    Route::resource('pages', 'Admin\AdminPageController');
+
 });
 
 Route::get('/', function () {
