@@ -35,7 +35,7 @@
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->description }}</td>
                     <td>
-                        @include('admin.modules.portfolios_images.partials._toggle',[
+                        @include('admin.modules.portfolios_images.partials._form_toggle',[
                             'url'       => '',
                             'status'    => $item->is_main
                         ])
@@ -44,12 +44,12 @@
                         @include('admin.partials.buttons._edit_link', [
                             'url' => route('admin.portfolios.images.edit', [
                                 'portfolio' => $portfolio,
-                                'image' => $item])
+                                'image'     => $item])
                             ])
                         @include('admin.partials._destroy', [
                             'url' => route('admin.portfolios.images.destroy', [
                                 'portfolio' => $portfolio,
-                                'image' => $item])
+                                'image'     => $item])
                             ])
                     </td>
                 </tr>

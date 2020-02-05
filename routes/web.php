@@ -25,7 +25,7 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'as' => 'admin.'], f
             Route::get('edit', [AdminPortfolioController::class, 'edit'])->name('edit');
             Route::put('', [AdminPortfolioController::class, 'update'])->name('update');
             Route::delete('', [AdminPortfolioController::class, 'destroy'])->name('destroy');
-            Route::resource('images', 'Admin\AdminPortfolioImageController', ['parameters' => ['image' => 'portfolioImage']]);
+            Route::resource('images', 'Admin\AdminPortfolioImageController');
             Route::post('files', [AdminPortfolioImageController::class, 'storeFiles'])->name('store_files');
        });
     });

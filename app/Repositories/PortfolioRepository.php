@@ -29,11 +29,6 @@ class PortfolioRepository
         return Portfolio::create($data);
     }
 
-    public function update(Portfolio $portfolio, array $data)
-    {
-        return $portfolio->update($data);
-    }
-
     public function storeImage(Portfolio $portfolio, UploadedFile $file)
     {
         $path = $this->uploadImage($portfolio, $file);
@@ -50,6 +45,16 @@ class PortfolioRepository
         $path = $file->storeAs($storage_path, $filename);
 
         return \Storage::url($path);
+    }
+
+    public function update(Portfolio $portfolio, array $data)
+    {
+        return $portfolio->update($data);
+    }
+
+    public function updateImageInfo(PortfolioImage $image, array $data)
+    {
+        return $image->update($data);
     }
 
     public function delete(Portfolio $portfolio)
