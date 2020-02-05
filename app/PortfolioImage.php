@@ -12,7 +12,7 @@ class PortfolioImage extends Model
 
     public function getAdminPreviewUrlAttribute()
     {
-        return route('imagecache', ['thumb', $this->file]);
+        return route('imagecache', ['portfolio_medium', $this->file]);
     }
 
     /**

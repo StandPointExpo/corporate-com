@@ -57,6 +57,7 @@ return array(
         'medium' => 'Intervention\Image\Templates\Medium',
         'large' => 'Intervention\Image\Templates\Large',
         'thumb' => App\ImageFilters\Thumbnail::class,
+        'portfolio_medium' => App\ImageFilters\PortfolioMediumThumbnail::class,
     ),
 
     /*
