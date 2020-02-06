@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('pagename', 'Контакты')
+@section('pagenav', 'Контакты компании')
 
 @section('content')
 

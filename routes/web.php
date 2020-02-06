@@ -6,15 +6,24 @@ use App\Http\Controllers\Admin\{
     AdminPortfolioController, AdminPortfolioImageController, AdminController
 };
 use App\Http\Controllers\{
-    ContactController, PageController, PartnerController, PortfolioController, PortfolioImageController
+    MainController,  ContactController, PageController, PartnerController, PortfolioController, PortfolioImageController
 };
+
+
+Route::get('/', function () {
+    return redirect('main');
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('login', [LoginController::class, 'login']);
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::get('main', [MainController::class, 'index'])->name('main');
 });
-Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'as' => 'admin.'], function () { //todo admin middleware
+Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::get('', [AdminController::class, 'index'])->name('index');
     Route::group(['prefix' => 'portfolios', 'as' => 'portfolios.'], function () {
@@ -40,8 +49,4 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'as' => 'admin.'], f
          Route::put('{article}', [AdminPageController::class, 'updateArticle'])->name('update');
          Route::delete('{article}', [AdminPageController::class, 'deleteArticle'])->name('destroy');
     });
-});
-
-Route::get('/', function () {
-    return redirect('admin');
 });

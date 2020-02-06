@@ -15,8 +15,13 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('language_id');
             $table->string('name')->nullable();
+            $table->string('site_title')->nullable();
             $table->string('description')->nullable();
+
+            $table->foreign('language_id')->references('id')->on('languages')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
