@@ -9,6 +9,9 @@ use App\Page;
 
 class Article extends Model
 {
+
+    public $timestamps = false;
+
     public $fillable = ['page_id', 'language_id', 'name', 'text'];
 
     /**

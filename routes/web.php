@@ -32,7 +32,14 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'as' => 'admin.'], f
     Route::resource('partners', 'Admin\AdminPartnerController');
     Route::resource('contacts', 'Admin\AdminContactController');
     Route::resource('pages', 'Admin\AdminPageController');
-
+    Route::group(['prefix' => 'pages/{page}/articles', 'as' => 'pages_articles.'], function () {
+         Route::get('', [AdminPageController::class, 'articles'])->name('index');
+         Route::get('create', [AdminPageController::class, 'createArticle'])->name('create');
+         Route::get('{article}/edit', [AdminPageController::class, 'editArticle'])->name('edit');
+         Route::post('', [AdminPageController::class, 'storeArticle'])->name('store');
+         Route::put('{article}', [AdminPageController::class, 'updateArticle'])->name('update');
+         Route::delete('{article}', [AdminPageController::class, 'deleteArticle'])->name('destroy');
+    });
 });
 
 Route::get('/', function () {

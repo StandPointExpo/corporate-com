@@ -11,7 +11,8 @@
 
             <div class="panel-body">
                 {{ Form::model($image, ['method' => 'PUT', 'route' => [
-                    'admin.portfolios.images.update', $portfolio,$image ]]) }}
+                    'admin.portfolios.images.update', $portfolio,$image ]])
+                }}
                 @include('admin.modules.portfolios_images.partials._form_info')
                 @if(!$image->is_main)
                     @include('admin.modules.portfolios_images.partials._form_toggle',[

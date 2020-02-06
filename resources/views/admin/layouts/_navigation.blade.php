@@ -10,7 +10,7 @@
 
 <nav class="navbar px-navbar">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">NAVIGATION ADMIN TITLE</a>
+        <a class="navbar-brand" href="#">NAVIGATION ADMIN</a>
     </div>
 
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#px-navbar-collapse" aria-expanded="false"><i class="navbar-toggle-icon"></i></button>
