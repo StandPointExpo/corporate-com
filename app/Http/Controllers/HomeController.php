@@ -18,6 +18,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        return redirect('admin.index');
+        return redirect()->route('admin.index');
     }
 }

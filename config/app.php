@@ -1,5 +1,7 @@
 <?php
 
+use App\Language;
+
 return [
 
     /*
@@ -95,6 +97,8 @@ return [
 
     'fallback_locale' => 'en',
 
+
+    'available_locales' => Language::LANGUAGES,
     /*
     |--------------------------------------------------------------------------
     | Faker Locale

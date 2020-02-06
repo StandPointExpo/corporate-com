@@ -10,11 +10,26 @@ use App\Page;
 
 class PageRepository
 {
+    /**
+     * @return mixed
+     */
+    public function mainPage()
+    {
+        return Page::mainPage()->first();
+    }
+
+    /**
+     * @return Page[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function all()
     {
         return Page::all();
     }
 
+    /**
+     * @param Page $page
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function allArticles(Page $page)
     {
         return $page->articles()->get();

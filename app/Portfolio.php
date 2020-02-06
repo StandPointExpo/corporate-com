@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Portfolio extends Model
 {
-    const DEFAULT_MAIN_IMAGE = 'default/img/no-image.jpeg';
+    const DEFAULT_MAIN_IMAGE        = 'default/img/no-image.jpeg';
+    const DEFAULT_PORTFOLIOS_NUMBER = 12;
 
     public $fillable = ['title', 'description', 'active', 'client'];
 

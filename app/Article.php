@@ -10,6 +10,12 @@ use App\Page;
 class Article extends Model
 {
 
+    const TEXT_SECOND  = 'second-text';
+    const TEXT_FOURTH  = 'fourth-text';
+    const TEXT_FIRST   = 'first-text';
+    const TEXT_THIRD   = 'third-text';
+    const TEXT_FIFTH   = 'fifth-text';
+
     public $timestamps = false;
 
     public $fillable = ['page_id', 'language_id', 'name', 'text'];

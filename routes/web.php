@@ -1,28 +1,27 @@
 <?php
 
+use App\Language;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\{
-    AdminContactController, AdminPageController, AdminPartnerController,
-    AdminPortfolioController, AdminPortfolioImageController, AdminController
+    AdminContactController, AdminPageController, AdminPartnerController, AdminPortfolioController,
+    AdminPortfolioImageController, AdminController
 };
 use App\Http\Controllers\{
-    MainController,  ContactController, PageController, PartnerController, PortfolioController, PortfolioImageController
+    MainController,  ContactController, PageController, PartnerController, PortfolioController,
+    PortfolioImageController, HomeController
 };
 
-
 Route::get('/', function () {
-    return redirect('main');
+    return redirect(app()->getLocale());
 });
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('locale/{locale}', [MainController::class, 'changeLanguage'])->name('set_locale');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('login', [LoginController::class, 'login']);
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-
-    Route::get('main', [MainController::class, 'index'])->name('main');
 });
+
 Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::get('', [AdminController::class, 'index'])->name('index');
@@ -49,4 +48,12 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'adm
          Route::put('{article}', [AdminPageController::class, 'updateArticle'])->name('update');
          Route::delete('{article}', [AdminPageController::class, 'deleteArticle'])->name('destroy');
     });
+});
+
+Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => ['web', 'setLocate']], function() {
+
+    Route::get('/', [MainController::class, 'index'])->name('main');
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 });

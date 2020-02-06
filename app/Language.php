@@ -14,6 +14,8 @@ class Language extends Model
     const UKRAINE  = 'ua';
     const RUSSIAN  = 'ru';
 
+    const MAIN_LANGUAGE = self::UKRAINE;
+
     const ENG_FULL  = 'english';
     const UA_FULL   = 'ukrainian';
     const RU_FULL   = 'russian';
