@@ -25,4 +25,10 @@ return [
         'route' => 'admin.contacts.index',
         'children' => [],
     ],
+    [
+        'title' => 'Guest Letters',
+        'icon'  => 'fa fa-envelope',
+        'route' => 'admin.letters.index',
+        'children' => [],
+    ]
 ];

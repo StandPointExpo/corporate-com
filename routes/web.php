@@ -4,7 +4,7 @@ use App\Language;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\{
     AdminContactController, AdminPageController, AdminPartnerController, AdminPortfolioController,
-    AdminPortfolioImageController, AdminController
+    AdminPortfolioImageController, AdminController, AdminGuestLetterController
 };
 use App\Http\Controllers\{
     MainController,  ContactController, PageController, PartnerController, PortfolioController,
@@ -50,6 +50,10 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'adm
          Route::post('', [AdminPageController::class, 'storeArticle'])->name('store');
          Route::put('{article}', [AdminPageController::class, 'updateArticle'])->name('update');
          Route::delete('{article}', [AdminPageController::class, 'deleteArticle'])->name('destroy');
+    });
+    Route::group(['prefix' => 'letters', 'as' => 'letters.'], function() {
+        Route::get('', [AdminGuestLetterController::class, 'index'])->name('index');
+        Route::delete('{letter}', [AdminGuestLetterController::class, 'destroy'])->name('destroy');
     });
 });
 

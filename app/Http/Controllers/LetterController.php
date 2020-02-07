@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FeedbackRequest;
+use App\Http\Requests\LetterRequest;
 use App\Http\Traits\Responseable;
 use App\Mail\LetterMail;
 use App\GuestLetter;
@@ -11,7 +11,7 @@ class LetterController extends Controller
 {
     use Responseable;
 
-    public function send(FeedbackRequest $request)
+    public function send(LetterRequest $request)
     {
         $this->sendAndStoreLetter($request->validated());
 
