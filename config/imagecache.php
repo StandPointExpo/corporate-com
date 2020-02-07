@@ -53,11 +53,12 @@ return array(
     */
 
     'templates' => array(
-        'small' => 'Intervention\Image\Templates\Small',
-        'medium' => 'Intervention\Image\Templates\Medium',
-        'large' => 'Intervention\Image\Templates\Large',
-        'thumb' => App\ImageFilters\Thumbnail::class,
-        'portfolio_medium' => App\ImageFilters\PortfolioMediumThumbnail::class,
+        'small'     => 'Intervention\Image\Templates\Small',
+        'medium'    => 'Intervention\Image\Templates\Medium',
+        'large'     => 'Intervention\Image\Templates\Large',
+        'thumb'     => App\ImageFilters\Thumbnail::class,
+        'portfolio_medium'  => App\ImageFilters\PortfolioMediumThumbnail::class,
+        'portfolio_large'   => App\ImageFilters\PortfolioLarge::class,
     ),
 
     /*
