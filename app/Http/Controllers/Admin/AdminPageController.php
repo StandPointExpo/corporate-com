@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Article;
+use App\Http\Requests\Admin\AdminArticleRequest;
+use App\Http\Requests\Admin\AdminPageRequest;
 use App\Http\Traits\Responseable;
 use App\Page;
 use App\Repositories\PageRepository;
 use Illuminate\Routing\Controller;
-use Illuminate\Http\Request;
 
 class AdminPageController extends Controller
 {
@@ -81,16 +82,22 @@ class AdminPageController extends Controller
 
     /**
      * @param Page $page
-     * @param Request $request
+     * @param AdminPageRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Page $page, Request $request) //todo page request, +  only validated
+    public function store(Page $page, AdminPageRequest $request)
     {
         $this->repository->store($request->only(['name', 'site_title', 'description', 'language_id']));
         return $this->redirectSuccess('admin.pages.index');
     }
 
-    public function storeArticle(Page $page, Article $article, Request $request)
+    /**
+     * @param Page $page
+     * @param Article $article
+     * @param AdminArticleRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function storeArticle(Page $page, Article $article, AdminArticleRequest $request)
     {
         $this->repository->storeArticle($page, $request->only(['name', 'text']));
         return $this->redirectSuccess('admin.pages_articles.index', compact('page'));
@@ -98,10 +105,10 @@ class AdminPageController extends Controller
 
     /**
      * @param Page $page
-     * @param Request $request
+     * @param AdminPageRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Page $page, Request $request) //todo page request, + only validated
+    public function update(Page $page, AdminPageRequest $request)
     {
         $this->repository->update($page, $request->only(['name', 'site_title', 'description', 'language_id']));
         return $this->redirectSuccess('admin.pages.index');
@@ -110,10 +117,10 @@ class AdminPageController extends Controller
     /**
      * @param Page $page
      * @param Article $article
-     * @param Request $request
+     * @param AdminArticleRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function updateArticle(Page $page, Article $article, Request $request)
+    public function updateArticle(Page $page, Article $article, AdminArticleRequest $request)
     {
         $this->repository->updateArticle($article, $request->only(['name', 'text']));
         return $this->redirectSuccess('admin.pages_articles.index', compact('page'));

@@ -25,8 +25,8 @@ class LetterController extends Controller
      */
     protected function sendAndStoreLetter(array $letter)
     {
-        \Mail::to(env('MAIL_TO_ADDRESS', $this->getDefaultMail()))->send(new LetterMail(collect($letter)));
-        return  GuestLetter::create($letter);
+        GuestLetter::create($letter);
+        return  \Mail::to(env('MAIL_TO_ADDRESS', $this->getDefaultMail()))->send(new LetterMail(collect($letter)));
     }
 
     /**

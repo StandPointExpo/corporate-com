@@ -11,6 +11,10 @@ class Contact extends Model
 
     public $fillable = ['name', 'address', 'email', 'phone'];
 
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
     public function scopeDefaultMail(Builder $query)
     {
         return $query->where('name', 'standpoint.com.ua');
