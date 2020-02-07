@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\AdminPartnerRequest;
 use Illuminate\Routing\Controller;
 use App\Http\Traits\Responseable;
 use Illuminate\Http\Request;
@@ -42,10 +43,10 @@ class AdminPartnerController extends Controller
 
     /**
      * @param Partner $partner
-     * @param Request $request
+     * @param AdminPartnerRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Partner $partner, Request $request) //todo partner request
+    public function store(Partner $partner, AdminPartnerRequest $request)
     {
         $partner->create($request->only(['name', 'link']));
 
@@ -54,10 +55,10 @@ class AdminPartnerController extends Controller
 
     /**
      * @param Partner $partner
-     * @param Request $request
+     * @param AdminPartnerRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Partner $partner, Request $request)  //todo partner request
+    public function update(Partner $partner, AdminPartnerRequest $request)
     {
         $partner->update($request->only(['name', 'link']));
 
