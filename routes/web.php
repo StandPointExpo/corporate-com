@@ -60,7 +60,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'adm
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => ['web', 'setLocate']], function() {
 
     Route::get('/', [MainController::class, 'index'])->name('main');
-
+    Route::get('/contacts', [ContactController::class,'index'])->name('contacts');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 });
