@@ -1,12 +1,17 @@
 @extends('admin.layouts.master')
 
-@section('pagenav', $portfolio->title)
+@section('pagenav', "$portfolio->title")
 
 @section('content')
     <div class="panel">
         <div class="panel-heading">
             <div class="row">
-                <div class="col-md-12 text-right">
+                <div class="col-md-2 text-left">
+                    <a href="{{asset(route('admin.portfolios.index'))}}" class="btn btn-default">
+                        <i class="fas fa-arrow-circle-left"></i> Вернуться к списку портфолио
+                    </a>
+                </div>
+                <div class="col-md-10 text-right">
                     <div class="col-md-12 text-right">
                         <a href="{{ route('admin.portfolios.images.create', compact('portfolio')) }}" class="btn btn-primary">
                             Добавить изображения
