@@ -8,12 +8,15 @@ use App\Http\Controllers\Admin\{
 };
 use App\Http\Controllers\{
     MainController,  ContactController, PageController, PartnerController, PortfolioController,
-    PortfolioImageController, HomeController
+    PortfolioImageController, HomeController, FeedbackController
 };
 
 Route::get('/', function () {
     return redirect(app()->getLocale());
 });
+
+Route::post('/send-email', [FeedbackController::class, 'send'])->name('send_mail');
+
 Route::get('locale/{locale}', [MainController::class, 'changeLanguage'])->name('set_locale');
 
 Route::group(['middleware' => ['web']], function () {

@@ -22,6 +22,6 @@
     @endforeach
 </ul>
 <h2></h2>
-
+@include('partials._form_mail')
 </body>
 </html>
