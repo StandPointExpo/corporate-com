@@ -2,15 +2,15 @@
 
 return [
     [
-        'title' => 'Portfolios',
-        'icon'  => 'fa fa-list-alt',
-        'route' => 'admin.portfolios.index',
+        'title' => 'Guest Letters',
+        'icon'  => 'fa fa-envelope',
+        'route' => 'admin.letters.index',
         'children' => [],
     ],
     [
-        'title' => 'Pages',
-        'icon'  => 'fa fa-columns',
-        'route' => 'admin.pages.index',
+        'title' => 'Portfolios',
+        'icon'  => 'fa fa-list-alt',
+        'route' => 'admin.portfolios.index',
         'children' => [],
     ],
     [
@@ -26,9 +26,9 @@ return [
         'children' => [],
     ],
     [
-        'title' => 'Guest Letters',
-        'icon'  => 'fa fa-envelope',
-        'route' => 'admin.letters.index',
+        'title' => 'Pages',
+        'icon'  => 'fa fa-columns',
+        'route' => 'admin.pages.index',
         'children' => [],
-    ]
+    ],
 ];
