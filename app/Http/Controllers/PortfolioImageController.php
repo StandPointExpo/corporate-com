@@ -18,10 +18,9 @@ class PortfolioImageController extends Controller
 
     /**
      * @param Portfolio $portfolio
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Portfolio $portfolio) //TODO auth()->user() to admin check
+    public function index(Portfolio $portfolio)
     {
-        return view('', compact($portfolio));
+        //
     }
 }

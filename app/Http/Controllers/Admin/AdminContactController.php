@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Contact;
+use App\Http\Requests\Admin\AdminContactUpdateRequest;
 use App\Http\Traits\Responseable;
 use Illuminate\Routing\Controller;
-use Illuminate\Http\Request;
 
 class AdminContactController extends Controller
 {
@@ -17,7 +17,7 @@ class AdminContactController extends Controller
         return view('admin.modules.contacts.index', compact('contact'));
     }
 
-    public function update(Contact $contact, Request $request) //TODO CONTACT REQUEST
+    public function update(Contact $contact, AdminContactUpdateRequest $request)
     {
         $contact->update($request->only(['address', 'email', 'phone']));
         return $this->backSuccess();
