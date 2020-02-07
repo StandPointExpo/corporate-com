@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\AdminPortfolioRequest;
 use App\Http\Traits\Responseable;
 use App\Repositories\PortfolioRepository;
 use Illuminate\Routing\Controller;
@@ -38,10 +39,10 @@ class AdminPortfolioController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param AdminPortfolioRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request) //todo make PortfolioRequest
+    public function store(AdminPortfolioRequest $request)
     {
         $portfolio = $this->repository->store($request->only([
             'description',
@@ -51,7 +52,6 @@ class AdminPortfolioController extends Controller
         ]));
         return $this->redirectSuccess('admin.portfolios.index');
     }
-
 
     /**
      * @param Portfolio $portfolio
@@ -63,11 +63,11 @@ class AdminPortfolioController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param AdminPortfolioRequest $request
      * @param Portfolio $portfolio
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Portfolio $portfolio) //TODO PortfolioRequest and $request->validated
+    public function update(AdminPortfolioRequest $request, Portfolio $portfolio)
     {
         $this->repository->update($portfolio, $request->only($request->only([
             'title', 'description', 'active', 'client'
@@ -78,6 +78,7 @@ class AdminPortfolioController extends Controller
     /**
      * @param Portfolio $portfolio
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Portfolio $portfolio)
     {
