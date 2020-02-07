@@ -17,12 +17,16 @@ class PortfolioRepository
         return Portfolio::all();
     }
 
+    public function allActive()
+    {
+        return Portfolio::active()->inRandomOrder()->get();
+    }
     /**
      * @return mixed
      */
     public function preview()
     {
-        return Portfolio::take(Portfolio::DEFAULT_PORTFOLIOS_NUMBER)->get();
+        return Portfolio::active()->inRandomOrder()->take(Portfolio::DEFAULT_PORTFOLIOS_NUMBER)->get();
     }
 
     /**

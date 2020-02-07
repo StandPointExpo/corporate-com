@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Portfolio extends Model
@@ -11,7 +12,7 @@ class Portfolio extends Model
 
     public $fillable = ['title', 'description', 'active', 'client'];
 
-    public $appends = ['main_image'];
+    public $appends = ['main_image', 'main_image_preview'];
 
     protected $with = ['images'];
 
@@ -28,6 +29,14 @@ class Portfolio extends Model
     /**
      * @return string
      */
+    public function getMainImagePreviewAttribute()
+    {
+        return route('imagecache', ['portfolio_medium', $this->main_image]);
+    }
+
+    /**
+     * @return string
+     */
     public function getAdminMainImageUrlAttribute()
     {
         return route('imagecache', ['small', $this->main_image]);
@@ -39,5 +48,14 @@ class Portfolio extends Model
     public function images()
     {
         return $this->hasMany(PortfolioImage::class);
+    }
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeActive(Builder $query)
+    {
+        return $query->where('active', true);
     }
 }

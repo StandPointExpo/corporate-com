@@ -28,6 +28,7 @@ class MainController extends Controller
      */
     public function index()
     {
+        $portfolios         = $this->portfolioRepository->allActive();
         $previewPortfolios  = $this->portfolioRepository->preview();
         $pageText           = $this->pageRepository->mainPage();
         $partners           = Partner::all();
