@@ -15,10 +15,10 @@ class CreateGuestLettersTable extends Migration
     {
         Schema::create('guest_letters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
             $table->string('name');
             $table->string('email');
-            $table->text('text');
+            $table->string('subject');
+            $table->text('message');
             $table->timestamps();
         });
     }

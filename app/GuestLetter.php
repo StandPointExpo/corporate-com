@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class GuestLetter extends Model
 {
-    public $fillable = ['title', 'name', 'email', 'text'];
+    public $fillable = ['subject', 'name', 'email', 'message'];
 }
