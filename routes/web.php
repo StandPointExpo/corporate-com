@@ -33,6 +33,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'adm
         Route::post('', [AdminPortfolioController::class, 'store'])->name('store');
         Route::get('', [AdminPortfolioController::class, 'index'])->name('index');
         Route::group(['prefix' => '{portfolio}'], function () {
+            Route::post('status', [AdminPortfolioController::class, 'changeStatus'])->name('change_status');
             Route::get('edit', [AdminPortfolioController::class, 'edit'])->name('edit');
             Route::put('', [AdminPortfolioController::class, 'update'])->name('update');
             Route::delete('', [AdminPortfolioController::class, 'destroy'])->name('destroy');

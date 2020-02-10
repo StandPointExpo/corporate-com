@@ -77,6 +77,18 @@ class AdminPortfolioController extends Controller
 
     /**
      * @param Portfolio $portfolio
+     * @param Request $request
+     * @return array
+     */
+    public function changeStatus(Portfolio $portfolio, Request $request)
+    {
+        $this->repository->changeStatus($portfolio, $request->get('status'));
+
+        return ['success' => true, 'status' => $portfolio->active];
+    }
+
+    /**
+     * @param Portfolio $portfolio
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */

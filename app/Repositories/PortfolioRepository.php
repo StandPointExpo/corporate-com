@@ -97,6 +97,15 @@ class PortfolioRepository
 
     /**
      * @param Portfolio $portfolio
+     * @param bool $status
+     * @return bool
+     */
+    public function changeStatus(Portfolio $portfolio, bool $status)
+    {
+        return $portfolio->update(['active' => $status]);
+    }
+    /**
+     * @param Portfolio $portfolio
      * @return bool|null
      * @throws \Exception
      */

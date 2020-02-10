@@ -17,6 +17,7 @@
         <table class="table custom-table">
             <thead>
             <tr>
+                <th>Active</th>
                 <th>Название</th>
                 <th>Обложка</th>
                 <th>Клиент</th>
@@ -30,6 +31,9 @@
 
             @foreach ($portfolio as $item)
                 <tr>
+                    <td id="{{ $item->id }}">
+                        @include('admin.modules.portfolios.partials._form_checkbox')
+                    </td>
                     <td>{{ $item->title }}</td>
                     <td>
                         <img src="{{ $item->admin_main_image_url }}" alt="">
