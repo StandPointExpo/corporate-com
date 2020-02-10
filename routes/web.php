@@ -64,3 +64,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'wh
     Route::get('/contacts', [ContactController::class,'index'])->name('contacts');
 
 });
+
+Route::get('/{any}', function () {
+    return redirect()->route('main');
+})->where('any', '.*');
