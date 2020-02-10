@@ -61,6 +61,5 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'wh
 
     Route::get('/', [MainController::class, 'index'])->name('main');
     Route::get('/contacts', [ContactController::class,'index'])->name('contacts');
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 });
