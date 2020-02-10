@@ -1,13 +1,13 @@
 <?php
 
 use App\Language;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\{
     AdminContactController, AdminPageController, AdminPartnerController, AdminPortfolioController,
-    AdminPortfolioImageController, AdminController, AdminGuestLetterController
+    AdminPortfolioImageController, AdminController, AdminGuestLetterController,
+    LoginController
 };
 use App\Http\Controllers\{
-    MainController,  ContactController, PageController, PartnerController, PortfolioController,
+    MainController,  ContactController, PortfolioController,
     PortfolioImageController, HomeController, LetterController
 };
 
@@ -20,14 +20,14 @@ Route::post('/send-email', [LetterController::class, 'send'])->name('send_mail')
 Route::get('locale/{locale}', [MainController::class, 'changeLanguage'])->name('set_locale');
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('login', [LoginController::class, 'login']);
+    Route::get('entrance', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('entrance', [LoginController::class, 'login']);
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
-    Route::get('', [AdminController::class, 'index'])->name('index');
+    Route::get('opening', [AdminController::class, 'index'])->name('index');
     Route::group(['prefix' => 'portfolios', 'as' => 'portfolios.'], function () {
         Route::get('create', [AdminPortfolioController::class, 'create'])->name('create');
         Route::post('', [AdminPortfolioController::class, 'store'])->name('store');
