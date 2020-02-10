@@ -24,7 +24,7 @@ class AdminContactUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'address'   => 'required|string|max:255',
+            'address'   => 'nullable|sometimes|string|max:255',
             'email'     => 'required|email|max:255',
             'phone'     => 'required|string|max:255'
         ];

@@ -19,4 +19,12 @@ class Contact extends Model
     {
         return $query->where('name', 'standpoint.com.ua');
     }
+
+    /**
+     * @return mixed
+     */
+    public static function getNumber()
+    {
+        return Contact::first()->phone;
+    }
 }

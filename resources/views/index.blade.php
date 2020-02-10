@@ -1,14 +1,30 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>Hello World</h1>
-    @foreach($previewPortfolios as $previewPortfolio)
+    <h1>@lang('main.target_title')</h1>
 
-        <img src="{{ $previewPortfolio->main_image_preview }}" alt="">
-{{--        @foreach($previewPortfolio->images as $portfolioImage)--}}
-{{--            <img src="{{ $portfolioImage->preview_url }}" alt="preview">--}}
-{{--            <img src="{{ $portfolioImage->large_url }}" alt="large">--}}
-{{--        @endforeach--}}
+    <h2>@lang('main.description_title')</h2>
+
+    @foreach(optional($pageText)->articles ?? [] as $article)
+            @if($article->name == \App\Article::TEXT_FIRST)
+                <p>
+                    {{ $article->text }}
+                </p>
+            @endif
     @endforeach
-    @include('partials._form_mail')
+
+    <h3>@lang('ui.portfolio')</h3>
+    <p>
+        @include('modules.portfolios.preview')
+    </p>
+
+    @lang('ui.our_partners')
+    <p>
+        @include('partials._partners')
+    </p>
+
+    @lang('ui.send_us')
+    <p>
+        @include('partials._form_mail')
+    </p>
 @stop
