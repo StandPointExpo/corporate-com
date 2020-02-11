@@ -23,7 +23,7 @@ class Contact extends Model
      */
     public static function getNumber()
     {
-        return Contact::first()->phone;
+        return optional(Contact::first())->phone;
     }
 
     /**
