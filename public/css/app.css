@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -10882,5 +10882,26 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.jumbotron {
+  height: 580px;
+  height: calc(100vh/1.7);
+  min-height: 350px;
+}
+
+.jumbotron .display-slogan {
+  font-size: 93px;
+  max-width: 374px;
+  text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.35);
+  font-weight: 600;
+}
+
+.jumbotron .display-slogan span {
+  color: #ea6a07;
 }
 

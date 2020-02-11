@@ -1,0 +1,19 @@
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron {
+    height: 580px;
+    height: calc(100vh/1.7);
+    min-height: 350px;
+    .display-slogan{
+        font-size: 93px;
+        max-width: 374px;
+        text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.35);
+        font-weight: 600;
+        span{
+            color: #ea6a07;
+        }
+    }
+}

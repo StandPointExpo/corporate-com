@@ -13,3 +13,10 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
+
+mix.browserSync({
+    open: false,
+    host: 'l.standpoint.com.ua',
+    proxy: 'l.standpoint.com.ua', // or project.dev/app/
+    port: 8080
+});

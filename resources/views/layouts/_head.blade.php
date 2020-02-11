@@ -6,14 +6,14 @@
     <title>@yield('pagename', 'standpoint.com.ua')</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet">
 
 
     <!-- Core stylesheets -->
 
     <!-- Core Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <link rel="stylesheet" href="{{URL::asset('css/app.css')}}">
     @stack('css')
 
 </head>

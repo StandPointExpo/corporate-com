@@ -1,4 +1,4 @@
-<ul class="navbar-nav ml-auto">
+<ul class="nav justify-content-end">
     @foreach (config('app.available_locales') as $locale)
         <li class="nav-item">
 
