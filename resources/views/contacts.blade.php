@@ -9,7 +9,7 @@
         @lang('contacts.telephone_fax') {{ $contacts->phone }}
     </p>
     <p>
-        @lang('e-mail') {{ $contacts->email }}
+        @lang('contacts.e-mail'): {{ $contacts->email }}
     </p>
 
     <p>

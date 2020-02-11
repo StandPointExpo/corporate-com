@@ -15,24 +15,25 @@ class PortfolioController extends Controller
         $this->repository = $repository;
     }
 
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
+        $portfolios = $this->repository->allActive();
 
+        return view('portfolios', compact('portfolios'));
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
+     * @param Portfolio $portfolio
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(Portfolio $portfolio)
     {
-        //
+        $images = $portfolio->images()->get();
+
+        return view('modules.portfolios.show-portfolio', compact('portfolio', 'images'));
     }
 }

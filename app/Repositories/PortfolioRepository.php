@@ -19,10 +19,14 @@ class PortfolioRepository
         return $paginate ? $query->paginate(Portfolio::PAGINATE_COUNT) : $query->get();
     }
 
+    /**
+     * @return mixed
+     */
     public function allActive()
     {
         return Portfolio::active()->inRandomOrder()->get();
     }
+
     /**
      * @return mixed
      */

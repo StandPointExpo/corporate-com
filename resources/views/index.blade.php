@@ -16,6 +16,8 @@
     <h3>@lang('ui.portfolio')</h3>
     <p>
         @include('modules.portfolios.preview')
+
+        <a href="{{ route('portfolios') }}">@lang('ui.more')</a>
     </p>
 
     @lang('ui.our_partners')
