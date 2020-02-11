@@ -9,15 +9,13 @@ class Contact extends Model
 {
     public $timestamps = false;
 
-    public $fillable = ['name', 'address', 'email', 'phone'];
+    public $fillable    = ['name', 'address', 'email', 'phone'];
 
-    /**
-     * @param Builder $query
-     * @return Builder
-     */
-    public function scopeDefaultMail(Builder $query)
+    public $appends     = ['coordinates'];
+
+    public function getCoordinatesAttribute()
     {
-        return $query->where('name', 'standpoint.com.ua');
+
     }
 
     /**
@@ -26,5 +24,14 @@ class Contact extends Model
     public static function getNumber()
     {
         return Contact::first()->phone;
+    }
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeDefaultMail(Builder $query)
+    {
+        return $query->where('name', 'standpoint.com.ua');
     }
 }

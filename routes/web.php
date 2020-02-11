@@ -62,7 +62,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'wh
 
     Route::get('/', [MainController::class, 'index'])->name('main');
     Route::get('/contacts', [ContactController::class,'index'])->name('contacts');
-
+    Route::get('/portfolios', [PortfolioController::class, 'index'])->name('portfolios');
 });
 
 Route::get('/{any}', function () {
