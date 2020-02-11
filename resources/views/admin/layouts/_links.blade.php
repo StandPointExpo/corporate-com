@@ -1,6 +1,6 @@
 <ul class="px-nav-content">
     @foreach (config('admin_nav') as $item)
-        @include('admin.layouts._nav_controller', ['item' => $item])
+        @include('admin.layouts._nav-controller', ['item' => $item])
     @endforeach
     <li class="px-nav-item">
         <a href="{{ route('logout') }}" id="logout-link">

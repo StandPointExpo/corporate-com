@@ -11,10 +11,12 @@ class PortfolioRepository
 {
     /**
      * @return Portfolio[]|\Illuminate\Database\Eloquent\Collection
+     * @param bool $paginate
      */
-    public function all()
+    public function all(bool $paginate = false)
     {
-        return Portfolio::all();
+        $query = new Portfolio;
+        return $paginate ? $query->paginate(Portfolio::PAGINATE_COUNT) : $query->get();
     }
 
     public function allActive()
@@ -29,13 +31,16 @@ class PortfolioRepository
         return Portfolio::active()->inRandomOrder()->take(Portfolio::DEFAULT_PORTFOLIOS_NUMBER)->get();
     }
 
+
     /**
      * @param Portfolio $portfolio
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @param bool $paginate
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function images(Portfolio $portfolio)
+    public function images(Portfolio $portfolio, bool $paginate = false)
     {
-        return $portfolio->images()->get();
+        $query = $portfolio->images();
+        return $paginate ? $query->paginate(Portfolio::PAGINATE_COUNT) : $query->get();
     }
 
     /**

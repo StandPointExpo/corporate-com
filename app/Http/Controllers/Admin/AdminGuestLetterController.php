@@ -16,7 +16,7 @@ class AdminGuestLetterController extends Controller
      */
     public function index()
     {
-        $letters = GuestLetter::all();
+        $letters = GuestLetter::paginate(GuestLetter::PAGINATE_COUNT);
 
         return view('admin.modules.letters.index', compact('letters'));
     }

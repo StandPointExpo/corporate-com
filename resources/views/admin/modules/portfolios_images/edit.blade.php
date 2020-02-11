@@ -13,9 +13,9 @@
                 {{ Form::model($image, ['method' => 'PUT', 'route' => [
                     'admin.portfolios.images.update', $portfolio,$image ]])
                 }}
-                @include('admin.modules.portfolios_images.partials._form_info')
+                @include('admin.modules.portfolios_images.partials._form-info')
                 @if(!$image->is_main)
-                    @include('admin.modules.portfolios_images.partials._form_toggle',[
+                    @include('admin.modules.portfolios_images.partials._form-toggle',[
                           'status' => $image->is_main
                     ])
                 @endif

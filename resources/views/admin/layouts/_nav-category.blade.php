@@ -11,7 +11,7 @@
 
     <ul class="px-nav-dropdown-menu" style="">
         @foreach ($item['children'] as $subitem)
-            @include('admin.layouts._nav_controller', ['item' => $subitem])
+            @include('admin.layouts._nav-controller', ['item' => $subitem])
         @endforeach
     </ul>
 </li>

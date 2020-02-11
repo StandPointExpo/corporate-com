@@ -32,7 +32,7 @@ class AdminPortfolioImageController extends Controller
      */
     public function index(Portfolio $portfolio)
     {
-        $images = $this->repository->images($portfolio);
+        $images = $this->repository->images($portfolio, true);
         return view('admin.modules.portfolios_images.index', compact('portfolio','images'));
     }
 

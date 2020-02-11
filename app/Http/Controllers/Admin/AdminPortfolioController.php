@@ -25,7 +25,7 @@ class AdminPortfolioController extends Controller
      */
     public function index()
     {
-        $portfolio = $this->repository->all();
+        $portfolio = $this->repository->all(true);
         return view('admin.modules.portfolios.index', compact('portfolio'));
     }
 

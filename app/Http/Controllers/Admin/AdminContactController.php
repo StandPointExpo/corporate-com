@@ -11,12 +11,20 @@ class AdminContactController extends Controller
 {
     use Responseable;
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $contact = Contact::firstOrCreate(['name' => 'standpoint.com.ua']);
         return view('admin.modules.contacts.index', compact('contact'));
     }
 
+    /**
+     * @param Contact $contact
+     * @param AdminContactUpdateRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Contact $contact, AdminContactUpdateRequest $request)
     {
         $contact->update($request->only(['address', 'email', 'phone']));

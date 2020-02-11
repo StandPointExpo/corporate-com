@@ -10,7 +10,7 @@
                 {{ Form::model($portfolioImage, [
                     'route' => ['admin.portfolios.store_files', $portfolio], 'method' => 'POST',
                     'files' => true ])}}
-                @include('admin.modules.portfolios_images.partials._form_upload')
+                @include('admin.modules.portfolios_images.partials._form-upload')
 
                 @include('admin.partials.buttons._save')
                 {{ Form::close() }}

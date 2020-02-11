@@ -25,6 +25,6 @@
 
     @lang('ui.send_us')
     <p>
-        @include('partials._form_mail')
+        @include('partials._form-mail')
     </p>
 @stop

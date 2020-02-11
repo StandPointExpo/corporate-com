@@ -41,7 +41,7 @@
                     <td>{{ $item->description }}</td>
                     <td>{!! $item->is_main ? "<i class='fas fa-check-circle'></i>" : '' !!} </td>
                     <td>
-                        @include('admin.partials.buttons._edit_link', [
+                        @include('admin.partials.buttons._edit-link', [
                             'target'    => '_self',
                             'url'       => route('admin.portfolios.images.edit', [
                                 'portfolio' => $portfolio,
@@ -59,5 +59,5 @@
             </tbody>
         </table>
     </div>
-
+    {{ $images->links() }}
 @stop

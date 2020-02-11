@@ -35,7 +35,7 @@
                     <td>{{ $item->text }}</td>
                     <td>{{ $page->language_name }}</td>
                     <td>
-                        @include('admin.partials.buttons._edit_link', [
+                        @include('admin.partials.buttons._edit-link', [
                             'target'    => '_self',
                             'url'       => route('admin.pages_articles.edit', [
                                 'page'      => $page,

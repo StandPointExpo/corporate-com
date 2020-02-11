@@ -32,7 +32,7 @@
                         <a href="{{ $item->link }}" target="_blank">{{ $item->free_link }}</a>
                     </td>
                     <td>
-                        @include('admin.partials.buttons._edit_link', [
+                        @include('admin.partials.buttons._edit-link', [
                             'target'    => '_self',
                             'url'       => route('admin.partners.edit', ['partner' => $item])])
                         @include('admin.partials._destroy', [

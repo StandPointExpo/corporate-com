@@ -35,13 +35,13 @@
                     <td>{{ $item->description }}</td>
                     <td>{{ $item->language_name }}</td>
                     <td>
-                        @include('admin.partials.buttons._redirect_link', [
+                        @include('admin.partials.buttons._redirect-link', [
                             'url'   => route('admin.pages_articles.index', ['page' => $item]),
                             'title' => 'Перейти к текстам'
                         ])
                     </td>
                     <td>
-                        @include('admin.partials.buttons._edit_link', [
+                        @include('admin.partials.buttons._edit-link', [
                             'target'    => '_self',
                             'url'       => route('admin.pages.edit', ['page' => $item])])
                         @include('admin.partials._destroy', [

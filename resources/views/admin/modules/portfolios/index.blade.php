@@ -32,7 +32,7 @@
             @foreach ($portfolio as $item)
                 <tr>
                     <td id="{{ $item->id }}">
-                        @include('admin.modules.portfolios.partials._form_checkbox')
+                        @include('admin.modules.portfolios.partials._form-checkbox')
                     </td>
                     <td>{{ $item->title }}</td>
                     <td>
@@ -41,13 +41,13 @@
                     <td>{{ $item->client }}</td>
                     <td>{{ $item->description }}</td>
                     <td>
-                        @include('admin.partials.buttons._redirect_link', [
+                        @include('admin.partials.buttons._redirect-link', [
                             'url'   => route('admin.portfolios.images.index', ['portfolio' => $item]),
                             'title' => 'Перейти к изображениям'
                         ])
                     </td>
                     <td>
-                        @include('admin.partials.buttons._edit_link', [
+                        @include('admin.partials.buttons._edit-link', [
                             'target'    => '_self',
                             'url'       => route('admin.portfolios.edit', ['portfolio' => $item])])
                         @include('admin.partials._destroy', [
@@ -59,5 +59,5 @@
             </tbody>
         </table>
     </div>
-
+    {{ $portfolio->links() }}
 @stop
