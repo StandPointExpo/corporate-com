@@ -1,19 +1,254 @@
 
-body{
-    font-family: 'Roboto', sans-serif;
+@font-face {
+    font-family: "MyriadProSemiBold";
+    src: url("/fonts/MyriadProSemiBold/MyriadProSemiBold.eot");
+    src: url("/fonts/MyriadProSemiBold/MyriadProSemiBold.eot?#iefix")format("embedded-opentype"),
+    url("/fonts/MyriadProSemiBold/MyriadProSemiBold.woff") format("woff"),
+    url("/fonts/MyriadProSemiBold/MyriadProSemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
 }
 
+body{
+    font-family: 'Roboto', sans-serif;
+    color: $text;
+}
+
+.navbar {
+    background-image: url(/images/back_1.jpg);
+    background-repeat: no-repeat;
+    .navbar-toggler,
+    .navbar-toggler:focus,
+    .navbar-toggler:active{
+        border-radius: 0;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        border: 0;
+        padding: 0.88rem 0.75rem;
+        box-shadow: none;
+        outline: none;
+        &.active{
+            background: #000;
+            border-radius: 0;
+        }
+    }
+    .navbar-nav {
+        .nav-link {
+            text-transform: uppercase;
+            color: $brown;
+            font-size: 16px;
+            line-height: 19px;
+            &.active{
+                color: #fff;
+            }
+            @media (max-width: 768px) {
+                padding: 1rem;
+                color: rgba(255, 255, 255, 0.75);
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        &.navbar-expand-md .navbar-nav .nav-link {
+            padding-right: 0.9rem;
+            padding-left: .8rem;
+        }
+    }
+    @media (max-width: 768px) {
+        .collapse.show {
+            position: absolute;
+            background: #000;
+            width: 100%;
+            padding: 15px 15px;
+            margin-top: 47px;
+        }
+    }
+    .phones-menu{
+        color: $white;
+        font-size: 16px;
+        img{
+            width: 22px;
+            max-height: 22px;
+            margin: 0 9px 0 0;
+        }
+        a {
+            font-size: 16px;
+            color: $white;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            padding-left: 60px;
+        }
+    }
+    .lang-menu {
+        .nav-link {
+            color: $brown;
+            font-size: 16px;
+            &.active {
+                color: $white;
+                @media (max-width: 768px){
+                    color: rgba(255, 255, 255, 0.75);
+                }
+            }
+        }
+        @media (min-width: 768px) {
+            .navbar-nav .nav-link {
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+            }
+        }
+        .dropdown{
+            position: relative;
+            @media (max-width: 768px) {
+                .nav.navbar-nav{
+                    position: absolute;
+                    display: none;
+                    padding-left: 9px;
+                    padding-right: 22px;
+                    background-color: #000000;
+                    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                        .nav-link {
+                            padding-right: 0.5rem;
+                            padding-left: 0.5rem;
+                            color: rgba(255, 255, 255, 0.75);
+                            &.active{
+                                color: $white;
+                            }
+                        }
+                        &.show-lang{
+                            display: flex;
+                        }
+                }
+            }
+        }
+        #langDropdownMenuButton{
+            display: none;
+            color: $white;
+            font-size: 16px;
+            text-transform: uppercase;
+            background-color: transparent;
+            border-color: transparent;
+            padding-left: 15px;
+            border-radius: 0;
+            transition: none;
+            &.btn:focus, &.btn:active, &.btn.active{
+                outline: none;
+                box-shadow: none;
+            }
+            @media (max-width: 768px) {
+                display: inline-block;
+            }
+        }
+        .show-lang-block{
+            #langDropdownMenuButton{
+                background-color: #000000;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        padding-top: 0;
+    }
+}
 .jumbotron {
-    height: 580px;
-    height: calc(100vh/1.7);
+    //height: 580px;
+    //height: calc(100vh/1.28);
     min-height: 350px;
+    background: url(/images/back_1.jpg) no-repeat;
+    border-radius: 0;
+    margin-bottom: 25px;
+    padding-bottom: 1rem !important;
+    background-attachment: fixed;
+    @media (max-width: 991px){
+        height: auto;
+        padding-bottom: 0;
+    }
+    .gallery-block{
+        height: 546px;
+        height: calc(100vh/1.5);
+        min-height: 428px;
+        position: relative;
+        z-index: 10;
+        max-height: 570px;
+        .gallery {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: red;
+            z-index: 5;
+        }
+        @media (max-width: 768px){
+            height: 350px;
+            height: calc(65%);
+        }
+    }
     .display-slogan{
         font-size: 93px;
         max-width: 374px;
-        text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.35);
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
         font-weight: 600;
+        font-family: "MyriadProSemiBold";
+        color: $white;
+        position: relative;
+        z-index: 10;
         span{
             color: #ea6a07;
+        }
+        @media (max-width: 768px){
+            font-size:36px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+            font-weight: 600;
+            font-family: "MyriadProSemiBold";
+        }
+    }
+    .logo-block{
+        z-index: 15;
+        margin-top: -30px;
+        margin-bottom: -30px;
+        padding-bottom: 0;
+        .logo{
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            max-height: calc(93%);
+            @media (max-width: 768px){
+                position: relative;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                max-height: 140px;
+            }
+        }
+        .subslogan-block{
+            min-height: 190px;
+            @media (max-width: 768px) {
+                min-height: inherit;
+            }
+        }
+        h2{
+            font-size: 34px;
+            text-align: right;
+            color: #fff;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            @media (max-width: 768px){
+                font-size: 20px;
+                text-align: center;
+                color: #fff;
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+                line-height: 28px;
+            }
+        }
+        @media (max-width: 768px) {
+            z-index: 15;
+            margin-top: -28px;
+            margin-bottom: -15px;
+            padding-bottom: 0;
         }
     }
 }

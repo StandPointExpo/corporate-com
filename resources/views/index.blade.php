@@ -4,13 +4,24 @@
     <main role="main">
         <div class="container-fluid">
         <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron row">
-            <div class="container-fluid">
+        <div class="jumbotron row px-0">
+            <div class="container-fluid gallery-block d-flex align-items-center px-lg-4">
+                <div class="gallery">
+                    gallery
+                </div>
                 <h1 class="display-slogan">@lang('main.target_title')</h1>
-
+            </div>
+            <div class="container logo-block">
+                <div class="row">
+                    <div class="col-12 col-lg-5 col-md-5">
+                        <img class="logo" src="/images/icons/logo.svg">
+                    </div>
+                    <div class="col-12 col-lg-7 col-md-7 d-flex align-items-center subslogan-block">
+                        <h2>@lang('main.description_title')</h2>
+                    </div>
+                </div>
             </div>
         </div>
-
         <div class="container">
             <!-- Example row of columns -->
             <div class="row">
@@ -34,8 +45,6 @@
             <hr>
 
         </div> <!-- /container -->
-
-        <h2>@lang('main.description_title')</h2>
 
         @foreach(optional($pageText)->articles ?? [] as $article)
             @if($article->name == \App\Article::TEXT_FIRST)

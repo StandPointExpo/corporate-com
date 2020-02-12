@@ -1,0 +1,1 @@
+[Wed Feb 12 11:10:33.284594 2020] [php7:error] [pid 10148:tid 1968] [client 127.0.0.1:61948] PHP Fatal error:  Cannot use Illuminate\\Support\\Facades\\Request as Request because the name is already in use in D:\\Sites\\corporate-website\\app\\Http\\Controllers\\MainController.php on line 12, referer: http://l.standpoint.com.ua:8080/en
