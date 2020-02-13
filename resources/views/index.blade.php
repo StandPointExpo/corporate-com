@@ -1,65 +1,67 @@
 @extends('layouts.master')
-
+@section('pagename', $pageText->site_title ?? '' )
 @section('content')
     <main role="main">
-        <div class="container-fluid">
+        <div class="container-fluid front-content">
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron row px-0">
             <div class="container-fluid gallery-block d-flex align-items-center px-lg-4">
                 <div class="gallery">
-                    gallery
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="img-item" style="background-image: url(/images/gallery/item-1_02.jpg); background-repeat: no-repeat"></div>
+                                <div class="description-cantainer">Automechanika<br>
+                                    Frankfurt am Mein, Germany</div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="img-item" style="background-image: url(/images/gallery/item-2_02.jpg); background-repeat: no-repeat"></div>
+                                <div class="description-cantainer">Salone del Mobile<br>
+                                    Milano, Italy</div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="img-item" style="background-image: url(/images/gallery/item-3_02.jpg); background-repeat: no-repeat"></div>
+                                <div class="description-cantainer">Salone del Mobile<br>
+                                    Milano, Italy</div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
                 <h1 class="display-slogan">@lang('main.target_title')</h1>
             </div>
-            <div class="container logo-block">
+            <div class="container-fluid logo-block">
                 <div class="row">
                     <div class="col-12 col-lg-5 col-md-5">
                         <img class="logo" src="/images/icons/logo.svg">
                     </div>
-                    <div class="col-12 col-lg-7 col-md-7 d-flex align-items-center subslogan-block">
-                        <h2>@lang('main.description_title')</h2>
+                    <div class="col-12 col-lg-7 col-md-7 d-flex subslogan-block justify-content-md-end">
+                        <h2 class="justify-content-sm-center">@lang('main.description_title')</h2>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="row">
             <!-- Example row of columns -->
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
+            <div class="container description-company">
+                    @foreach(optional($pageText)->articles ?? [] as $article)
+                        @if($article->name == \App\Article::TEXT_FIRST)
+                           {!! $article->text !!}
+                        @endif
+                    @endforeach
             </div>
 
-            <hr>
-
         </div> <!-- /container -->
-
-        @foreach(optional($pageText)->articles ?? [] as $article)
-            @if($article->name == \App\Article::TEXT_FIRST)
-                <p>
-                    {{ $article->text }}
-                </p>
-            @endif
-        @endforeach
-
+<div class="row portfolio-block">
+    <div class="container">
         <h3>@lang('ui.portfolio')</h3>
         <p>
             @include('modules.portfolios.preview')
 
             <a href="{{ route('portfolios') }}">@lang('ui.more')</a>
         </p>
+    </div>
+</div>
 
         @lang('ui.our_partners')
         <p>

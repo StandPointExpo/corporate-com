@@ -6,8 +6,7 @@
     <title>@yield('pagename', 'standpoint.com.ua')</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic" rel="stylesheet">
 
     <!-- Core stylesheets -->
 
