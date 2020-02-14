@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Observers\ContactObserver;
 use App\PortfolioImage;
 use App\Contact;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
     {
         PortfolioImage::observe(PortfolioImageObserver::class);
         Contact::observe(ContactObserver::class);
+        Schema::defaultStringLength(191);
     }
 }
