@@ -8,23 +8,39 @@
             <div class="container-fluid gallery-block d-flex align-items-center px-lg-4">
                 <div class="gallery">
                     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleFade" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleFade" data-slide-to="1" class=""></li>
+                            <li data-target="#carouselExampleFade" data-slide-to="2" class=""></li>
+                            <li data-target="#carouselExampleFade" data-slide-to="3" class=""></li>
+                            <li data-target="#carouselExampleFade" data-slide-to="4" class=""></li>
+                            <li data-target="#carouselExampleFade" data-slide-to="5" class=""></li>
+                        </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <div class="img-item" style="background-image: url(/images/gallery/item-1_02.jpg); background-repeat: no-repeat"></div>
-                                <div class="description-cantainer">Automechanika<br>
-                                    Frankfurt am Mein, Germany</div>
+                                <div class="img-item" style="background-image: url('/images/gallery/Automechanika_Frankfurt_am_Main_Germany.jpg'); background-repeat: no-repeat"></div>
+                                <div class="description-cantainer">Automechanika,<br> Frankfurt am Main, Germany</div>
                             </div>
                             <div class="carousel-item">
-                                <div class="img-item" style="background-image: url(/images/gallery/item-2_02.jpg); background-repeat: no-repeat"></div>
-                                <div class="description-cantainer">Salone del Mobile<br>
-                                    Milano, Italy</div>
+                                <div class="img-item" style="background-image: url('/images/gallery/Cevisama_Valencia_Spain.jpg'); background-repeat: no-repeat"></div>
+                                <div class="description-cantainer">Cevisama,<br> Valencia, Spain</div>
                             </div>
                             <div class="carousel-item">
-                                <div class="img-item" style="background-image: url(/images/gallery/item-3_02.jpg); background-repeat: no-repeat"></div>
-                                <div class="description-cantainer">Salone del Mobile<br>
-                                    Milano, Italy</div>
+                                <div class="img-item" style="background-image: url('/images/gallery/EuroSatory_Paris_France.jpg'); background-repeat: no-repeat"></div>
+                                <div class="description-cantainer">EuroSatory,<br> Paris, France</div>
                             </div>
-
+                            <div class="carousel-item">
+                                <div class="img-item" style="background-image: url('/images/gallery/EuroVision_2017.jpg'); background-repeat: no-repeat"></div>
+                                <div class="description-cantainer">EuroVision<br> 2017</div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="img-item" style="background-image: url('/images/gallery/MebelInterior_Kyiv_Ukraine.jpg'); background-repeat: no-repeat"></div>
+                                <div class="description-cantainer">MebelInterior,<br> Kyiv, Ukraine</div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="img-item" style="background-image: url('/images/gallery/Salone_del_Mobile_Milano_Italy.jpg'); background-repeat: no-repeat"></div>
+                                <div class="description-cantainer">Salone del Mobile,<br> Milano, Italy</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -60,6 +76,7 @@
 
             <a href="{{ route('portfolios') }}">@lang('ui.more')</a>
         </p>
+
     </div>
 </div>
 

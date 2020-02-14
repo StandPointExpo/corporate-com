@@ -13,7 +13,10 @@
     url("/fonts/MyriadPro/MyriadPro-Light.woff") format("woff"),
     url("/fonts/MyriadPro/MyriadPro-Light.ttf") format("truetype");
 }
-
+html,
+body {
+    scroll-padding-top: 65px; /* set to the height of your header */
+}
 body{
     font-family: 'Roboto', sans-serif;
     color: $text;
@@ -173,6 +176,16 @@ body{
         padding-top: 0;
     }
 }
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
 
 .jumbotron {
     //height: 580px;
@@ -208,6 +221,19 @@ body{
                 z-index: 10;
                 height: 506px;
                 height: calc(100%);
+                .carousel-indicators {
+                    position: absolute;
+                    right: 15px;
+                    top: 15px;
+                    left: auto;
+                    z-index: 15;
+                    display: flex;
+                    justify-content: center;
+                    padding-left: 0;
+                    margin-right: auto;
+                    margin-left: auto;
+                    list-style: none;
+                }
                 .carousel-inner {
                     position: relative;
                     width: 100%;
@@ -270,15 +296,14 @@ body{
         }
     }
     .display-slogan{
-        font-size: 97px;
-        max-width: 374px;
+        font-size: 120px;
         text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
         font-weight: 600;
         font-family: "Myriad Pro SemiBold";
-        color: $white;
+        color: #FFFFFF;
         position: relative;
         z-index: 10;
-        top: -28px;
+        top: -43px;
         left: 23px;
         line-height: 112px;
         span{
@@ -350,4 +375,19 @@ body{
     font-size: 18px;
     padding-top: 5rem;
     padding-bottom: 5rem;
+    p {
+        margin-top: 0;
+        margin-bottom: 1.3rem;
+    }
+}
+.portfolio-block{
+    background-image: url(/images/back_2.jpg);
+    background-repeat: no-repeat;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    h3{
+        text-align: center;
+        font-size: 36px;
+        color: $white;
+    }
 }

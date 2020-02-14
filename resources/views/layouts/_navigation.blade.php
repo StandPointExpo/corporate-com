@@ -1,6 +1,4 @@
-
-
-<nav class="navbar navbar-expand-md navbar-dark fixed-top px-0">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top px-0" id="headerMenu">
     <button class="navbar-toggler" type="button" v-bind:class= "[mobileMenu ? 'active' : '']"
             data-toggle="collapse"
             data-target="#navbarCollapse"

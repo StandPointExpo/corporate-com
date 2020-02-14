@@ -27,6 +27,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import Headroom from 'headroom.js';
+import LightBox from 'lightbox2';
+
 const app = new Vue({
     el: '#app',
     data: function(){
@@ -36,7 +39,23 @@ const app = new Vue({
         }
     },
     mounted: function(){
-        console.log('test')
+        let headerMenu  = document.querySelector('nav');
+        let headroom = new Headroom(headerMenu, {
+            "offset": 105,
+            "tolerance": 5,
+            "classes": {
+                "initial": "headroom",
+                "pinned": "headroom--pinned",
+                "unpinned": "headroom--unpinned"
+            }
+        });
+        headroom.init();
+
+        LightBox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        })
+
     }
 });
 
