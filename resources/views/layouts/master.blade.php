@@ -3,13 +3,10 @@
 @include('layouts._head')
 <body>
 
-@include('layouts._navigation')
-
 <!-- Content -->
 <div id="app">
-<div>
+    @include('layouts._navigation')
     @yield('content')
-</div>
 </div>
 
 @stack('modals')
