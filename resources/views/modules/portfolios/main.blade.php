@@ -1,6 +1,6 @@
 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-sm-2 box-portfolio">
     @foreach(($portfolios ?? []) as $portfolio)
-        <div class="col mb-1 project-item">
+        <div class="col mb-4 mt-1 project-item">
             @foreach($portfolio->images as $portfolioImage)
                 @if($loop->first)
                     <a href="{{ $portfolioImage->large_url }}" data-lightbox="example-set-{{$portfolio->id}}"
