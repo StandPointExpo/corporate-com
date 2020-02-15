@@ -8,7 +8,7 @@ return [
     'our_partners'  => 'Наши партнеры',
     'portfolio'     => 'Портфолио',
     'your_name'     => 'Ваше имя',
-    'contacts'      => 'Контакти',
+    'contacts'      => 'Контакты',
     'main'          => 'Главная',
     'more'          => 'Больше',
     'subject'       => 'Тема',

@@ -35,7 +35,8 @@ const app = new Vue({
     data: function(){
         return {
             mobileMenu: false,
-            langMenu: false
+            langMenu: false,
+            closePrivacyBlock: false
         }
     },
     mounted: function(){
@@ -55,8 +56,56 @@ const app = new Vue({
             'resizeDuration': 200,
             'wrapAround': false
         })
+    },
+    created: function(){
+        if(this.getCookie('close_privacy')) this.closePrivacyBlock = true;
+    },
+    methods: {
+        setCookie: function(name, value, props) {
 
-    }
+            props = props || {}
+            var exp = props.expires
+            if (typeof exp == "number" && exp) {
+                var d = new Date()
+                d.setTime(d.getTime() + exp*1000)
+                exp = props.expires = d
+            }
+
+            if(exp && exp.toUTCString) { props.expires = exp.toUTCString() }
+            value = encodeURIComponent(value)
+            var updatedCookie = name + "=" + value
+
+            for(var propName in props){
+                updatedCookie += "; " + propName
+                var propValue = props[propName]
+                if(propValue !== true){ updatedCookie += "=" + propValue }
+            }
+            document.cookie = updatedCookie
+        },
+        getCookie: function(name){
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        },
+        deleteCookie: function(name) {
+            this.setCookie(name, "", {
+                'max-age': -1
+            })
+        },
+        closePrivacyBlockAction: function(){
+            this.closePrivacyBlock = true
+        }
+    },
+    watch:{
+        closePrivacyBlock: function(){
+            if(this.closePrivacyBlock == true){
+                this.setCookie('close_privacy', 'true', {'expires': 31536000});
+            }else{
+                this.deleteCookie('close_privacy');
+            }
+        }
+    },
 });
 
 

@@ -7,11 +7,11 @@
 <div id="app">
     @include('layouts._navigation')
     @yield('content')
+
+
+    @include('layouts._footer')
 </div>
-
 @stack('modals')
-
-@include('layouts._footer')
 @include('layouts._scripts')
 </body>
 </html>
