@@ -37,7 +37,7 @@
         </div>
     </div>
 <div class="privacy-footer-block" style="display: none" v-show="!$root.closePrivacyBlock">
-    <p>This website uses cookies so that we can provide you with the best user experience. By continuing using our website you accept our use of cookies. Further details can be found in our <a href="https://standpoint.com.ua/{{app()->getLocale()}}/privacy-policy">Privacy Policy</a>
+    <p>This website uses cookies so that we can provide you with the best user experience. By continuing using our website you accept our use of cookies. Further details can be found in our <a href="{{url('/')}}/{{app()->getLocale()}}/privacy-policy">Privacy Policy</a>
     <button @click="$root.closePrivacyBlockAction()">Got it</button>
     </p>
 </div>
