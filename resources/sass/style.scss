@@ -740,6 +740,7 @@ body {
 
         img.logo-contacts-page {
             height: 184px;
+            max-width: 100%;
             @media all and (max-width: 768px) {
                 height: auto;
             }
@@ -761,6 +762,7 @@ body {
         margin-top: 1rem;
         img {
             height: 180px;
+            max-width: 100%;
             @media (max-width: 768px){
                 height: auto;
                 margin: auto;
