@@ -19,6 +19,7 @@ class CreatePortfoliosTable extends Migration
             $table->string('client')->nullable();
             $table->string('description')->nullable();
             $table->boolean('active')->default(true);
+            $table->boolean('is_front')->default(false);
             $table->timestamps();
         });
     }

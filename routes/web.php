@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'adm
         Route::get('', [AdminPortfolioController::class, 'index'])->name('index');
         Route::group(['prefix' => '{portfolio}'], function () {
             Route::post('status', [AdminPortfolioController::class, 'changeStatus'])->name('change_status');
+            Route::post('front', [AdminPortfolioController::class, 'changeFront'])->name('change_front');
             Route::get('edit', [AdminPortfolioController::class, 'edit'])->name('edit');
             Route::put('', [AdminPortfolioController::class, 'update'])->name('update');
             Route::delete('', [AdminPortfolioController::class, 'destroy'])->name('destroy');

@@ -70,7 +70,7 @@ class AdminPortfolioController extends Controller
     public function update(AdminPortfolioRequest $request, Portfolio $portfolio)
     {
         $this->repository->update($portfolio, $request->only($request->only([
-            'title', 'description', 'active', 'client'
+            'title', 'description', 'active', 'client', 'is_front'
         ])));
         return $this->redirectSuccess('admin.portfolios.index');
     }
@@ -85,6 +85,18 @@ class AdminPortfolioController extends Controller
         $this->repository->changeStatus($portfolio, $request->get('status'));
 
         return ['success' => true, 'status' => $portfolio->active];
+    }
+
+    /**
+     * @param Portfolio $portfolio
+     * @param Request $request
+     * @return array
+     */
+    public function changeFront(Portfolio $portfolio, Request $request)
+    {
+        $this->repository->changeFront($portfolio, $request->get('is_front'));
+
+        return ['success' => true, 'is_front' => $portfolio->is_front];
     }
 
     /**

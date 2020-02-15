@@ -53,7 +53,7 @@ const app = new Vue({
 
         LightBox.option({
             'resizeDuration': 200,
-            'wrapAround': true
+            'wrapAround': false
         })
 
     }
