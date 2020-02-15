@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Seeder;
 use App\Page;
@@ -39,6 +40,7 @@ class PagesSeeder extends Seeder
      */
     public function run()
     {
+        Model::unguard();
         $start = now();
         $this->command->info('Pages Seeder Started...');
         foreach ($this->pages as $page) {

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use App\Contact;
 
@@ -20,6 +21,7 @@ class ContactsSeeder extends Seeder
      */
     public function run()
     {
+        Model::unguard();
         $start = now();
         $this->command->info('Contacts Seeder Started...');
 
