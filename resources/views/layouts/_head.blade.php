@@ -4,6 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('pagename', 'standpoint.com.ua')</title>
+    <meta property="og:title" content="@yield('pagename', 'standpoint.com.ua')">
+    <meta property="og:site_name" content="StandPoint">
+    <meta property="og:url" content="{{url()->current()}}">
+    <meta property="og:description" content="@yield('pagename', __('main.description_title'))">
+    <meta property="og:image" content="{{url('/')}}/images/icons/logo.svg">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic" rel="stylesheet">
