@@ -11,7 +11,7 @@ class Portfolio extends Model
     const PAGINATE_COUNT            = 10;
     const DEFAULT_PORTFOLIOS_NUMBER = 12;
 
-    public $fillable = ['title', 'description', 'active', 'client'];
+    public $fillable = ['title', 'description', 'active', 'client', 'is_front'];
 
     public $appends = ['main_image', 'main_image_preview'];
 
@@ -58,5 +58,14 @@ class Portfolio extends Model
     public function scopeActive(Builder $query)
     {
         return $query->where('active', true);
+    }
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeFront(Builder $query)
+    {
+        return $query->where('is_front', true);
     }
 }

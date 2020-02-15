@@ -11086,7 +11086,7 @@ a.text-dark:focus {
 
 @font-face {
   font-family: "Myriad Pro Regular";
-  src: url("/fonts/MyriadProRegular/MyriadProRegular.eot?#iefix") format("embedded-opentype");
+  src: url("/fonts/MyriadProRegular/MyriadPro-Regular.woff2") format("woff2");
 }
 
 html,
@@ -11330,7 +11330,7 @@ body {
 .jumbotron .gallery-block {
   height: 506px;
   height: calc(100vh/1.82);
-  min-height: 428px;
+  min-height: 485px;
   position: relative;
   z-index: 10;
   max-height: 570px;
@@ -11433,22 +11433,23 @@ body {
 
 @media (max-width: 768px) {
   .jumbotron .gallery-block {
-    height: 350px;
-    height: calc(65%);
+    height: 370px;
+    min-height: auto;
   }
 }
 
 .jumbotron .display-slogan {
   font-size: 120px;
+  font-size: calc(6.185vw + 10px);
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
   font-weight: 600;
   font-family: "Myriad Pro SemiBold";
   color: #FFFFFF;
   position: relative;
   z-index: 10;
-  top: -43px;
   left: 23px;
   line-height: 112px;
+  line-height: calc(6.185vw + 10px);
 }
 
 .jumbotron .display-slogan span {

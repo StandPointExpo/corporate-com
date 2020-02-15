@@ -35,6 +35,14 @@ class PortfolioRepository
         return Portfolio::active()->inRandomOrder()->take(Portfolio::DEFAULT_PORTFOLIOS_NUMBER)->get();
     }
 
+    /**
+     * @return mixed
+     */
+    public function frontPreview()
+    {
+        return Portfolio::where([['active','=', 1],[ 'is_front','=', 1]])->inRandomOrder()->take(Portfolio::DEFAULT_PORTFOLIOS_NUMBER)->get();
+    }
+
 
     /**
      * @param Portfolio $portfolio
@@ -112,6 +120,16 @@ class PortfolioRepository
     public function changeStatus(Portfolio $portfolio, bool $status)
     {
         return $portfolio->update(['active' => $status]);
+    }
+
+    /**
+     * @param Portfolio $portfolio
+     * @param bool $status
+     * @return bool
+     */
+    public function changeFront(Portfolio $portfolio, bool $status)
+    {
+        return $portfolio->update(['is_front' => $status]);
     }
     /**
      * @param Portfolio $portfolio

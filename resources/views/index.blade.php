@@ -71,12 +71,8 @@
 <div class="row portfolio-block">
     <div class="container">
         <h3>@lang('ui.portfolio')</h3>
-        <p>
-            @include('modules.portfolios.preview')
-
+            @include('modules.portfolios.front-portfolio')
             <a href="{{ route('portfolios') }}">@lang('ui.more')</a>
-        </p>
-
     </div>
 </div>
 

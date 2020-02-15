@@ -18,6 +18,7 @@
             <thead>
             <tr>
                 <th>Active</th>
+                <th>На главную</th>
                 <th>Название</th>
                 <th>Обложка</th>
                 <th>Клиент</th>
@@ -33,6 +34,9 @@
                 <tr>
                     <td id="{{ $item->id }}">
                         @include('admin.modules.portfolios.partials._form-checkbox')
+                    </td>
+                    <td class="{{ $item->id }}">
+                        @include('admin.modules.portfolios.partials._form-front-checkbox')
                     </td>
                     <td>{{ $item->title }}</td>
                     <td>
