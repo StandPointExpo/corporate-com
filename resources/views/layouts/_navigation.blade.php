@@ -30,5 +30,5 @@
         </div>
     </div>
 </nav>
-{{ \App\Contact::getNumber() ?? '' }}
+{{--{{ \App\Contact::getNumber() ?? '' }}--}}
 

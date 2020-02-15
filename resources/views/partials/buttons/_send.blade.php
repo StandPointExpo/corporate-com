@@ -1,5 +1,5 @@
-<div class="form-group">
-    <button type="submit" class="btn btn-primary btn-block">
+<div class="form-group text-center">
+    <button type="submit" class="btn btn-block mt-3">
         @lang('ui.send_message')
     </button>
 </div>

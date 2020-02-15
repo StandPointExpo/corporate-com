@@ -7,11 +7,23 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-    <!-- Core stylesheets -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158589039-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158589039-1');
+    </script>
+
 
     <!-- Core Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Core stylesheets -->
     <link rel="stylesheet" href="{{URL::asset('css/app.css')}}">
     @stack('css')
 

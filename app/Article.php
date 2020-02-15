@@ -15,6 +15,7 @@ class Article extends Model
     const TEXT_FIRST   = 'first-text';
     const TEXT_THIRD   = 'third-text';
     const TEXT_FIFTH   = 'fifth-text';
+    const PRIVACY_POLICY   = 'privacy-policy';
 
     public $timestamps = false;
 

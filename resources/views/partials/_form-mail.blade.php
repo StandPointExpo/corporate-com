@@ -1,3 +1,4 @@
+
 {{ Form::open(['url' => route('send_mail'), 'method' => 'POST']) }}
     <div class="form-group">
         @component('admin.components._group', ['el' => 'name'])
@@ -16,5 +17,6 @@
             {{ Form::textarea('message', null, ['placeholder' => trans('ui.your_message'), 'class' => 'form-control', 'id' => 'message']) }}
         @endcomponent
     </div>
+    <div class="g-recaptcha" data-sitekey="6Lfy1BgTAAAAABolmsfMTfr5tvI4MSq72zdWVHmW"></div>
     @include('partials.buttons._send')
 {{ Form::close() }}

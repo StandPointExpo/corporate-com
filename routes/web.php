@@ -65,6 +65,9 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'wh
     Route::get('/contacts', [ContactController::class,'index'])->name('contacts');
     Route::get('/portfolios', [PortfolioController::class, 'index'])->name('portfolios');
     Route::get('/portfolios/{portfolio}', [PortfolioController::class, 'show'])->name('show_images');
+    Route::get('/privacy-policy', function(){
+        return view('pages.privacy-policy');
+    })->name('privacy_policy');
 });
 
 Route::get('/{any}', function () {
