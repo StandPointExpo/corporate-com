@@ -81,10 +81,7 @@
                     @include('modules.portfolios.front-portfolio')
                     <div class="row">
                         <div class="col d-flex justify-content-center m-3">
-                            <a type="button" class="btn btn-outline-warning mt-3" data-toggle="button" aria-pressed="false"
-                               href="{{ route('portfolios') }}">
-                                @lang('ui.more')
-                            </a>
+                            <a class="btn btn-outline-warning mt-3" href="{{ route('portfolios') }}"> @lang('ui.more') </a>
                         </div>
                     </div>
                 </div>
