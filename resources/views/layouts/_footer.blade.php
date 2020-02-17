@@ -31,7 +31,7 @@
                         <a href="#" target="_blank"><img src="/images/icons/tw.svg"></a>
                         <a href="#" target="_blank"><img src="/images/icons/linkedin.svg"></a>
                     </p>
-                    <p><a href="https://standpoint.com.ua">standpoint.com.ua</a></p>
+                    <p><a href="{{url('/')}}">standpoint.com.ua</a></p>
                 </div>
             </div>
         </div>

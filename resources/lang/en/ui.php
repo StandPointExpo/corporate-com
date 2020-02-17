@@ -11,5 +11,6 @@ return [
     'contacts'      => 'Contacts',
     'main'          => 'Home',
     'subject'       => 'Subject',
-    'more'          => 'More'
+    'more'          => 'More',
+    'download_presentation' => 'Download presentation'
 ];

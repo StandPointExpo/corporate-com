@@ -485,7 +485,29 @@ body {
         }
     }
 }
+.custom-btn-outline-warning{
+    border-color: $corporate;
+    font-size: 18px;
+    color: $corporate;
+    width: 100%;
+    padding: 15px 30px;
+    max-width: 372px;
+    background: transparent;
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $corporate;
+        box-shadow: none;
+        color: $text;
+        border-color: $corporate;
+    }
 
+    &:not(:disabled):not(.disabled):active:focus,
+    &:not(:disabled):not(.disabled).active:focus,
+    &:focus {
+        box-shadow: none;
+    }
+}
 .portfolio-block {
     background-image: url(/images/back_2.jpg);
     background-repeat: no-repeat;
@@ -501,30 +523,7 @@ body {
         margin-top: 1rem;
         color: $white;
     }
-
-    .btn.btn-outline-warning {
-        border-color: $corporate;
-        font-size: 18px;
-        color: $corporate;
-        width: 100%;
-        padding: 15px 30px;
-        max-width: 372px;
-        background: transparent;
-        &:hover,
-        &:active,
-        &:focus {
-            background-color: $corporate;
-            box-shadow: none;
-            color: $text;
-            border-color: $corporate;
-        }
-
-        &:not(:disabled):not(.disabled):active:focus,
-        &:not(:disabled):not(.disabled).active:focus,
-        &:focus {
-            box-shadow: none;
-        }
-    }
+    
     @include box-portfolio;
 }
 
