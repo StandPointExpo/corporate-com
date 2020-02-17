@@ -485,6 +485,7 @@ body {
         }
     }
 }
+
 .custom-btn-outline-warning{
     border-color: $corporate;
     font-size: 18px;
@@ -508,6 +509,7 @@ body {
         box-shadow: none;
     }
 }
+
 .portfolio-block {
     background-image: url(/images/back_2.jpg);
     background-repeat: no-repeat;
@@ -523,7 +525,7 @@ body {
         margin-top: 1rem;
         color: $white;
     }
-    
+
     @include box-portfolio;
 }
 
