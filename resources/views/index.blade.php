@@ -72,6 +72,11 @@
                             {!! $article->text !!}
                         @endif
                     @endforeach
+                    <div class="download-presentation-block row">
+                        <div class="col d-flex justify-content-center m-3">
+                            <a href="{{url('/')}}/default/StandPoint-2020.pdf" class="btn btn-outline-warning custom-btn-outline-warning mt-3" download="StandPoint-2020"> @lang('ui.download_presentation') </a>
+                        </div>
+                    </div>
                 </div>
 
             </div> <!-- /container -->
@@ -81,7 +86,7 @@
                     @include('modules.portfolios.front-portfolio')
                     <div class="row">
                         <div class="col d-flex justify-content-center m-3">
-                            <a class="btn btn-outline-warning mt-3" href="{{ route('portfolios') }}"> @lang('ui.more') </a>
+                            <a class="btn btn-outline-warning custom-btn-outline-warning mt-3" href="{{ route('portfolios') }}"> @lang('ui.more') </a>
                         </div>
                     </div>
                 </div>

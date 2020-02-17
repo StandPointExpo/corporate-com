@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Observers\PortfolioImageObserver;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use App\Observers\ContactObserver;
 use App\PortfolioImage;
@@ -31,5 +32,8 @@ class AppServiceProvider extends ServiceProvider
         PortfolioImage::observe(PortfolioImageObserver::class);
         Contact::observe(ContactObserver::class);
         Schema::defaultStringLength(191);
+
+        Validator::extend('recaptcha', 'App\\Validators\\ReCaptcha@validate');
+
     }
 }

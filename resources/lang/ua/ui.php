@@ -12,4 +12,5 @@ return [
     'main'          => 'Головна',
     'more'          => 'Більше',
     'subject'       => 'Тема',
+    'download_presentation' => 'Завантажити презентацію'
 ];
