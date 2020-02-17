@@ -20,6 +20,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('portfolio-component', require('./components/PortfolioComponent.vue').default);
+
+import PortfolioComponent from './components/PortfolioComponent.vue';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,6 +35,9 @@ import LightBox from 'lightbox2';
 
 const app = new Vue({
     el: '#app',
+    components: {
+      'portfolio-component': PortfolioComponent,
+    },
     data: function(){
         return {
             mobileMenu: false,

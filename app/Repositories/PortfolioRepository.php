@@ -40,7 +40,7 @@ class PortfolioRepository
      */
     public function frontPreview()
     {
-        return Portfolio::where([['active','=', 1],[ 'is_front','=', 1]])->inRandomOrder()->take(Portfolio::DEFAULT_PORTFOLIOS_NUMBER)->get();
+        return Portfolio::isFront()->inRandomOrder()->take(Portfolio::DEFAULT_PORTFOLIOS_NUMBER)->get();
     }
 
 

@@ -64,7 +64,7 @@ class Portfolio extends Model
      * @param Builder $query
      * @return Builder
      */
-    public function scopeFront(Builder $query)
+    public function scopeIsFront(Builder $query)
     {
         return $query->where('is_front', true);
     }

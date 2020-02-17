@@ -27,6 +27,11 @@ class PortfolioImage extends Model
         return route('imagecache', ['portfolio_large', $this->file]);
     }
 
+    public function getLargeImageAttribute()
+    {
+        return route('imagecache', ['portfolio_large', $this->file]);
+    }
+
     public function getPreviewUrlAttribute()
     {
         return route('imagecache', ['portfolio_medium', $this->file]);
