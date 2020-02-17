@@ -29,7 +29,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Core stylesheets -->
-    <link rel="stylesheet" href="{{URL::asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/app.css')}}?version=0.1v">
     @stack('css')
 
 </head>
