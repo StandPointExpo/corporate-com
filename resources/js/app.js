@@ -33,7 +33,11 @@ import PortfolioComponent from './components/PortfolioComponent.vue';
 import Headroom from 'headroom.js';
 import LightBox from 'lightbox2';
 import VueLazyLoad from 'vue-lazyload';
+import VueAnalytics from 'vue-analytics'
 
+Vue.use(VueAnalytics, {
+    id: 'UA-158589039-1'
+})
 Vue.use(VueLazyLoad, {
     preLoad: 1.3,
     attempt: 1,
@@ -121,12 +125,10 @@ const app = new Vue({
             this.closePrivacyBlock = true
         },
         downloadPresentation(){
-            console.log('test')
-            window.ga('send', {
-                hitType: 'event',
+            this.$ga.event({
                 eventCategory: 'Presentation',
                 eventAction: 'download',
-                eventLabel: 'Standpoint Presenation'
+                eventLabel: 'Standpoint Presentation'
             })
         }
 
