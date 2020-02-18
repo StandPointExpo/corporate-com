@@ -42,7 +42,7 @@
             }
         },
         mounted() {
-            console.log(this.portfolios)
+           //
         },
         methods: {
             showImg(index) {
@@ -57,7 +57,6 @@
                 this.visible = true;
             },
             portfolioImages(portfolioImages) {
-                console.log(portfolioImages)
                 let images = [];
                 Object.entries(portfolioImages).forEach((item, index) => {
                     images.push(item[1].large_image);
