@@ -20,6 +20,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('portfolio-component', require('./components/PortfolioComponent.vue').default);
+
+import PortfolioComponent from './components/PortfolioComponent.vue';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,9 +32,30 @@ window.Vue = require('vue');
 
 import Headroom from 'headroom.js';
 import LightBox from 'lightbox2';
+import VueLazyLoad from 'vue-lazyload';
+
+Vue.use(VueLazyLoad, {
+    preLoad: 1.3,
+    attempt: 1,
+    loading: '/images/ajax-loader.gif',
+    throttleWait: 500,
+    // adapter: {
+    //     loading (listender, Init) {
+    //         console.log(Init)
+    //         console.log(listender)
+    //         console.log('loading')
+    //     },
+    //     error (listender, Init) {
+    //         console.log('error')
+    //     }
+    // }
+});
 
 const app = new Vue({
     el: '#app',
+    components: {
+      'portfolio-component': PortfolioComponent,
+    },
     data: function(){
         return {
             mobileMenu: false,
@@ -95,7 +119,17 @@ const app = new Vue({
         },
         closePrivacyBlockAction: function(){
             this.closePrivacyBlock = true
+        },
+        downloadPresentation(){
+            console.log('test')
+            window.ga('send', {
+                hitType: 'event',
+                eventCategory: 'Presentation',
+                eventAction: 'download',
+                eventLabel: 'Standpoint Presenation'
+            })
         }
+
     },
     watch:{
         closePrivacyBlock: function(){
