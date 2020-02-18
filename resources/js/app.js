@@ -32,6 +32,24 @@ import PortfolioComponent from './components/PortfolioComponent.vue';
 
 import Headroom from 'headroom.js';
 import LightBox from 'lightbox2';
+import VueLazyLoad from 'vue-lazyload';
+
+Vue.use(VueLazyLoad, {
+    preLoad: 1.3,
+    attempt: 1,
+    loading: '/images/ajax-loader.gif',
+    throttleWait: 500,
+    // adapter: {
+    //     loading (listender, Init) {
+    //         console.log(Init)
+    //         console.log(listender)
+    //         console.log('loading')
+    //     },
+    //     error (listender, Init) {
+    //         console.log('error')
+    //     }
+    // }
+});
 
 const app = new Vue({
     el: '#app',
@@ -101,7 +119,17 @@ const app = new Vue({
         },
         closePrivacyBlockAction: function(){
             this.closePrivacyBlock = true
+        },
+        downloadPresentation(){
+            console.log('test')
+            window.ga('send', {
+                hitType: 'event',
+                eventCategory: 'Presentation',
+                eventAction: 'download',
+                eventLabel: 'Standpoint Presenation'
+            })
         }
+
     },
     watch:{
         closePrivacyBlock: function(){
