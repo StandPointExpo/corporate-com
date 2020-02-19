@@ -25,7 +25,7 @@ class AdminPortfolioImageRequest extends FormRequest
     {
         return [
             'images'    => 'sometimes|array',
-            'images.*'  => 'nullable|mimes:jpeg,jpg,png|max:5000',
+            'images.*'  => 'nullable|mimes:jpeg,jpg,png|max:9000',
         ];
     }
 }

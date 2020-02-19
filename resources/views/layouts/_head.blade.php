@@ -26,10 +26,10 @@
 
 
     <!-- Core Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}?version=0.5v" defer></script>
 
     <!-- Core stylesheets -->
-    <link rel="stylesheet" href="{{URL::asset('css/app.css')}}?version=0.2v">
+    <link rel="stylesheet" href="{{URL::asset('css/app.css')}}?version=0.5v">
     @stack('css')
 
 </head>
