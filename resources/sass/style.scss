@@ -22,8 +22,8 @@ body {
 .navbar {
     background-image: url(/images/back_1.jpg);
     background-repeat: no-repeat;
-    padding: 0.6rem 1rem 0.1rem;
-
+    padding: .6rem 1rem .1rem;
+    background-size: cover;
     .navbar-collapse {
         @media (min-width: 768px) {
             padding-right: 4px;
@@ -219,6 +219,7 @@ body {
     margin-bottom: 25px;
     padding-bottom: 1rem !important;
     background-attachment: fixed;
+    background-size: cover;
     padding-top: 76px;
     @media (max-width: 991px) {
         height: auto;
@@ -347,6 +348,10 @@ body {
             color: #ea6a07;
         }
 
+        @media (min-width: 2000px) {
+            font-size: 120px;
+            line-height: 122px;
+        }
         @media (max-width: 768px) {
             font-size: 36px;
             text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
