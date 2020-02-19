@@ -16,7 +16,7 @@ class PortfolioRepository
     public function all(bool $paginate = false)
     {
         $query = new Portfolio;
-        return $paginate ? $query->paginate(Portfolio::PAGINATE_COUNT) : $query->get();
+        return $paginate ? $query->orderBy('created_at', 'desc')->paginate(Portfolio::PAGINATE_COUNT) : $query->get();
     }
 
     /**

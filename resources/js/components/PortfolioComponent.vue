@@ -3,26 +3,22 @@
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-sm-2 box-portfolio">
             <div class="col mb-4 mt-1 project-item" v-for="(portfolio, index) in portfolios">
                 <div class="project-info">
+                    <a :href="portfolio.images[0].large_url" :data-lightbox="'example-set-' + portfolio.id"
+                       :data-title="portfolio.title" class="more portfolig-g-bg">
                     <img v-lazy="portfolio.images[0].preview_url" >
-                    <div class="project-details" @click="showGallery(portfolio.images)">
+                    <div class="project-details" >
                         <h5 class="white-text red-border-bottom">{{portfolio.title}}</h5>
                         <div class="details white-text">{{portfolio.description}}</div>
                     </div>
+                    </a>
+                </div>
+                <div class="project-gallert-photos" style="display: none">
+                    <a v-for="(image, imgIndex) in portfolioImages(portfolio.images)"
+                       :data-lightbox="'example-set-' + portfolio.id"
+                       :data-title="portfolio.title" :href="image.large_url"></a>
                 </div>
             </div>
         </div>
-        <vue-easy-lightbox
-            :visible="visible"
-            moveDisabled
-            :imgs="images"
-            @hide="handleHide"
-        >
-            <template v-slot:loading="{loading}">
-                <div class="loading-lightbox">
-                    <img src="/images/ajax-loader.gif">
-                </div>
-            </template>
-        </vue-easy-lightbox>
     </div>
 </template>
 
@@ -59,7 +55,10 @@
             portfolioImages(portfolioImages) {
                 let images = [];
                 Object.entries(portfolioImages).forEach((item, index) => {
-                    images.push(item[1].large_image);
+                    if(index != 0)
+                    images.push({
+                        large_url: item[1].large_image
+                    });
 
                 });
                 return images;
@@ -69,41 +68,5 @@
     }
 </script>
 <style lang="scss" scoped>
-    .loading-lightbox{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-    }
-        .btn__close, .btn__next, .btn__prev {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            opacity: .6;
-            font-size: 32px;
-            color: #fff;
-            transition: .15s linear;
-            -webkit-tap-highlight-color: transparent;
-            outline: 0;
-        }
 
-        .btn__prev {
-            left: 12px;
-        }
-        .btn__prev.disable,
-        .btn__prev.disable:hover {
-             cursor: default;
-             opacity: .2;
-         }
-        .btn__next {
-            right: 12px;
-        }
-        .vel-icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -.15em;
-            fill: currentColor;
-            overflow: hidden;
-        }
 </style>
