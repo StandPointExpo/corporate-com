@@ -10,17 +10,17 @@ class PortfolioImage extends Model
 {
     public $fillable = ['portfolio_id', 'file', 'title', 'description', 'active', 'is_main'];
 
-    public $appends = ['large_image', 'admin_preview_url', 'admin_large_url', 'large_url', 'preview_url'];
+    public $appends = ['large_image', 'large_url', 'preview_url'];
 
-    public function getAdminPreviewUrlAttribute()
-    {
-        return route('imagecache', ['portfolio_medium', $this->file]);
-    }
+//    public function getAdminPreviewUrlAttribute()
+//    {
+//        return route('imagecache', ['portfolio_medium', $this->file]);
+//    }
 
-    public function getAdminLargeUrlAttribute()
-    {
-        return route('imagecache', ['portfolio_large', $this->file]);
-    }
+//    public function getAdminLargeUrlAttribute()
+//    {
+//        return route('imagecache', ['portfolio_large', $this->file]);
+//    }
 
     public function getLargeUrlAttribute()
     {

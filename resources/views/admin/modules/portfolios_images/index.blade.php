@@ -36,7 +36,7 @@
 
             @foreach ($images as $item)
                 <tr>
-                    <td><img src="{{ $item->admin_preview_url }}" alt=""></td>
+                    <td><img src="{{ $item->preview_url }}" alt=""></td>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->description }}</td>
                     <td>{!! $item->is_main ? "<i class='fas fa-check-circle'></i>" : '' !!} </td>

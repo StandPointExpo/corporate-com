@@ -7,7 +7,7 @@
     <div class="col-md-6 col-md-offset-3">
         <div class="panel">
 
-            <img src="{{ $image->admin_large_url }}" class="img-responsive center-block">
+            <img src="{{ $image->large_url }}" class="img-responsive center-block">
 
             <div class="panel-body">
                 {{ Form::model($image, ['method' => 'PUT', 'route' => [
