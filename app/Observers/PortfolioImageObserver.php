@@ -14,7 +14,10 @@ class PortfolioImageObserver
             $previousMainImages = PortfolioImage::where('portfolio_id', '=', $portfolioImage->portfolio_id)->mainImage()->get();
             if ($previousMainImages->count()) {
                $previousMainImages->each(function ($image) {
-                    $image->update(['is_main' => false]);
+                   try {
+                       unlink($this->getStoragePathForDeletingImage($image, $image->preview_file));
+                   } catch (\Exception $e) { dump( $e); }
+                   $image->update(['is_main' => false, 'preview_file' => null]);
                });
             }
             if (is_null($portfolioImage->preview_file)) {
@@ -28,8 +31,20 @@ class PortfolioImageObserver
 
     public function deleting(PortfolioImage $portfolioImage)
     {
-        $filePath = storage_path(implode('/', ['app', 'public', 'uploads', 'portfolios', $portfolioImage->portfolio_id, basename($portfolioImage->file)]));
-        unlink($filePath);
+        try {
+            $filePath = $this->getStoragePathForDeletingImage($portfolioImage, $portfolioImage->file);
+            unlink($filePath);
+            if (!is_null($portfolioImage->preview_file))
+            {
+                unlink($this->getStoragePathForDeletingImage($portfolioImage, $portfolioImage->preview_file));
+            }
+        } catch (\Exception $e) { dump( $e); }
+
+    }
+
+    protected function getStoragePathForDeletingImage(PortfolioImage $portfolioImage, $filepath)
+    {
+        return storage_path(implode('/', ['app', 'public', 'uploads', 'portfolios', $portfolioImage->portfolio_id, basename($filepath)]));
     }
 
     /**
