@@ -12,7 +12,7 @@ class PortfolioImageObserver
     {
         if ($portfolioImage->isDirty('is_main') && $portfolioImage->is_main == 1) {
 
-            $previousMainImages = PortfolioImage::mainImage()->where('portfolio_id', '==', $portfolioImage->portfolio_id)->get();
+            $previousMainImages = PortfolioImage::where('portfolio_id', '=', $portfolioImage->portfolio_id)->mainImage()->get();
             if ($previousMainImages->count()) {
                $previousMainImages->each(function ($image) {
                     $image->update(['is_main' => false]);
@@ -55,7 +55,9 @@ class PortfolioImageObserver
         $path       = asset($storage_path);
         $filename   = 'preview_'.basename($path);
         $targetPath = storage_path("app/public/uploads/portfolios/$portfolioImage->portfolio_id/$filename");
-        $image  = Image::make($path)->resize($width, $height)->save($targetPath);
+        $image  = Image::make($path)->resize($width, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($targetPath);
 
         return "/storage/uploads/portfolios/$portfolioImage->portfolio_id/$filename";
     }
