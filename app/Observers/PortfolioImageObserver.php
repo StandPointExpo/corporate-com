@@ -3,7 +3,6 @@
 namespace App\Observers;
 
 use App\PortfolioImage;
-use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class PortfolioImageObserver
@@ -27,9 +26,10 @@ class PortfolioImageObserver
         }
     }
 
-    public function deleted(PortfolioImage $portfolioImage)
+    public function deleting(PortfolioImage $portfolioImage)
     {
-        //todo
+        $filePath = storage_path(implode('/', ['app', 'public', 'uploads', 'portfolios', $portfolioImage->portfolio_id, basename($portfolioImage->file)]));
+        unlink($filePath);
     }
 
     /**
