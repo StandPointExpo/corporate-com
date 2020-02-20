@@ -9,6 +9,8 @@ use App\Observers\ContactObserver;
 use App\PortfolioImage;
 use App\Contact;
 use Illuminate\Support\Facades\Schema;
+use App\Portfolio;
+use App\Observers\PortfolioObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Portfolio::observe(PortfolioObserver::class);
         PortfolioImage::observe(PortfolioImageObserver::class);
         Contact::observe(ContactObserver::class);
         Schema::defaultStringLength(191);
