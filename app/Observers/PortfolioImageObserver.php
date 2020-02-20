@@ -55,7 +55,7 @@ class PortfolioImageObserver
         $path       = asset($storage_path);
         $filename   = 'preview_'.basename($path);
         $targetPath = storage_path("app/public/uploads/portfolios/$portfolioImage->portfolio_id/$filename");
-        $image  = Image::make($path)->resize($width, null, function ($constraint) {
+        $image  = Image::make($path)->resize($width, $height, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
         })->save($targetPath);
