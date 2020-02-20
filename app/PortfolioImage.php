@@ -8,14 +8,14 @@ use App\Portfolio;
 
 class PortfolioImage extends Model
 {
-    public $fillable = ['portfolio_id', 'file', 'title', 'description', 'active', 'is_main'];
+    public $fillable = ['portfolio_id', 'file', 'title', 'description', 'active', 'is_main', 'preview_file'];
 
     public $appends = ['large_image', 'large_url', 'preview_url'];
 
-//    public function getAdminPreviewUrlAttribute()
-//    {
-//        return route('imagecache', ['portfolio_medium', $this->file]);
-//    }
+    public function getAdminPreviewUrlAttribute()
+    {
+        return route('imagecache', ['portfolio_medium', $this->file]);
+    }
 
 //    public function getAdminLargeUrlAttribute()
 //    {
@@ -34,6 +34,9 @@ class PortfolioImage extends Model
 
     public function getPreviewUrlAttribute()
     {
+        if(!is_null($this->preview_file)) {
+            return asset($this->preview_file);
+        }
         return route('imagecache', ['portfolio_medium', $this->file]);
     }
 

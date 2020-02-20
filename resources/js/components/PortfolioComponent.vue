@@ -3,9 +3,9 @@
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-sm-2 box-portfolio">
             <div class="col mb-4 mt-1 project-item" v-for="(portfolio, index) in portfolios">
                 <div class="project-info">
-                    <a :href="portfolio.images[0].large_url" :data-lightbox="'example-set-' + portfolio.id"
+                    <a :href="portfolio.main_image_large" :data-lightbox="'example-set-' + portfolio.id"
                        :data-title="portfolio.title" class="more portfolig-g-bg">
-                    <img v-lazy="portfolio.images[0].preview_url" >
+                    <img v-lazy="portfolio.main_image_thumb" >
                     <div class="project-details" >
                         <h5 class="white-text red-border-bottom">{{portfolio.title}}</h5>
                         <div class="details white-text">{{portfolio.description}}</div>
