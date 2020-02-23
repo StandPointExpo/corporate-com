@@ -9,17 +9,19 @@ class PortfolioImageObserver
 {
     public function updating(PortfolioImage $portfolioImage)
     {
-        if ($portfolioImage->isDirty('is_main') && $portfolioImage->is_main == 1) {
+        if ($portfolioImage->isDirty('is_main') && $portfolioImage->is_main) {
 
-            $previousMainImages = PortfolioImage::where('portfolio_id', '=', $portfolioImage->portfolio_id)->mainImage()->get();
-            if ($previousMainImages->count()) {
-               $previousMainImages->each(function ($image) {
-                   try {
-                       unlink($this->getStoragePathForDeletingImage($image, $image->preview_file));
-                   } catch (\Exception $e) { dump( $e); }
-                   $image->update(['is_main' => false, 'preview_file' => null]);
-               });
-            }
+            $previousMainImages = PortfolioImage::where('portfolio_id', '=', $portfolioImage->portfolio_id)
+                ->mainImage()
+                ->get()
+                ->each(function ($image) {
+                try {
+                    if(file_exists($filePath = $this->getStoragePathForDeletingImage($image, $image->preview_file))) unlink($filePath);
+                } catch(\Exception $e) { dump($e); }
+
+                $image->update(['is_main' => false, 'preview_file' => null]);
+            });
+
             if (is_null($portfolioImage->preview_file)) {
                 try {
                     $this->createPreviewFromFile($portfolioImage);
@@ -68,13 +70,18 @@ class PortfolioImageObserver
     protected function imageResizeAndSave($storage_path, $width = null, $height = null, $portfolioImage)
     {
         $path       = asset($storage_path);
-        $filename   = 'preview_'.basename($path);
-        $targetPath = storage_path("app/public/uploads/portfolios/$portfolioImage->portfolio_id/$filename");
+        $filename   = sprintf('preview_%d_%s', time(), basename($path));
+        $targetPath = sprintf("public/uploads/portfolios/%d/%s", $portfolioImage->portfolio_id, $filename);
         $image  = Image::make($path)->resize($width, $height, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
-        })->save($targetPath);
+        })->encode(pathinfo($filename, PATHINFO_EXTENSION));
 
-        return "/storage/uploads/portfolios/$portfolioImage->portfolio_id/$filename";
+        \Storage::put($filename, $image);
+        \Storage::move($filename, $targetPath);
+
+        $image->destroy();
+
+        return \Storage::url($targetPath);
     }
 }

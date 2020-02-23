@@ -63,9 +63,10 @@ class AdminPortfolioImageController extends Controller
      */
     public function storeFiles(Portfolio $portfolio, AdminPortfolioImageRequest $request)
     {
-        foreach ($request->allFiles()['images']  as $file) {
-            $this->repository->storeImage($portfolio, $file);
+        if ($request->hasFile('images')) {
+            $this->repository->storeImages($portfolio, collect($request->allFiles()['images']));
         }
+
         return $this->redirectSuccess('admin.portfolios.images.index', compact('portfolio'));
     }
 

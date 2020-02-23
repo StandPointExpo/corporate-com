@@ -5,6 +5,7 @@ namespace App\Repositories;
 use Illuminate\Http\UploadedFile;
 use App\PortfolioImage;
 use App\Portfolio;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class PortfolioRepository
@@ -66,11 +67,23 @@ class PortfolioRepository
 
     /**
      * @param Portfolio $portfolio
+     * @param Collection $files
+     */
+    public function storeImages(Portfolio $portfolio, Collection $files)
+    {
+        $files->each( function($image) use ($portfolio) {
+            $this->storeImage($portfolio, $image);
+        });
+    }
+
+    /**
+     * @param Portfolio $portfolio
      * @param UploadedFile $file
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function storeImage(Portfolio $portfolio, UploadedFile $file)
     {
+
         $path = $this->uploadImage($portfolio, $file);
 
         return $portfolio->images()->create(['file' => $path]);
@@ -84,8 +97,7 @@ class PortfolioRepository
     public function uploadImage(Portfolio $portfolio, UploadedFile $file)
     {
         $storage_path   = sprintf("public/uploads/portfolios/%d", $portfolio->id);
-        $filename       = sprintf('%d_%s.%s', optional(request()->user())->id ?: 'N',
-            Str::random(10), $file->getClientOriginalExtension());
+        $filename       = sprintf('%d_%s.%s', optional(request()->user())->id ?: 'N', Str::random(10), $file->getClientOriginalExtension());
 
         $path = $file->storeAs($storage_path, $filename);
 
