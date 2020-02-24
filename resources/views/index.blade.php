@@ -7,7 +7,7 @@
             <div class="jumbotron row px-0">
                 <div class="container-fluid gallery-block d-flex align-items-center px-lg-4">
                     <div class="gallery">
-                        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
                             <ol class="carousel-indicators">
                                 <li data-target="#carouselExampleFade" data-slide-to="0" class="active"></li>
                                 <li data-target="#carouselExampleFade" data-slide-to="1" class=""></li>
@@ -18,6 +18,11 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
+                                    <div class="img-item"
+                                         style="background-image: url('/images/gallery/Salone_del_Mobile_Milano_Italy.jpg'); background-repeat: no-repeat"></div>
+                                    <div class="description-cantainer">Salone del Mobile,<br> Milano, Italy</div>
+                                </div>
+                                <div class="carousel-item">
                                     <div class="img-item"
                                          style="background-image: url('/images/gallery/Automechanika_Frankfurt_am_Main_Germany.jpg'); background-repeat: no-repeat"></div>
                                     <div class="description-cantainer">Automechanika,<br> Frankfurt am Main, Germany
@@ -42,11 +47,6 @@
                                     <div class="img-item"
                                          style="background-image: url('/images/gallery/MebelInterior_Kyiv_Ukraine.jpg'); background-repeat: no-repeat"></div>
                                     <div class="description-cantainer">MebelInterior,<br> Kyiv, Ukraine</div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="img-item"
-                                         style="background-image: url('/images/gallery/Salone_del_Mobile_Milano_Italy.jpg'); background-repeat: no-repeat"></div>
-                                    <div class="description-cantainer">Salone del Mobile,<br> Milano, Italy</div>
                                 </div>
                             </div>
                         </div>
