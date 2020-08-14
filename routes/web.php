@@ -85,6 +85,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'wh
 Route::get('/portfolios/{portfolio}/preview/{image}', function ($portfolio, $image) {
     $pathPreview = 'uploads/portfolios/' . $portfolio . '/preview/' . $image;
     $pathOriginal = 'uploads/portfolios/' . $portfolio . '/' . $image;
+    $pathImg = '/storage/uploads/portfolios/' . $portfolio . '/preview/';
 
     $getPreviewImg = Storage::disk('public')->exists($pathPreview);
     $getOriginalImg = Storage::disk('public')->exists($pathOriginal);
@@ -97,13 +98,12 @@ Route::get('/portfolios/{portfolio}/preview/{image}', function ($portfolio, $ima
         return $response;
     }
     if ($getOriginalImg && !$getPreviewImg) {
-        $realPathUrl = storage_path('app/public/uploads/portfolios/' . $portfolio . '/preview/' . $image);
+        $realPathUrl = storage_path('app/public/uploads/portfolios/' . $portfolio);
         $imgPrev = \Intervention\Image\Facades\Image::make(Storage::disk('public')->get($pathOriginal));
         $imgPrev->orientate();
-        $imgPrev->resize(290, 180, function ($constraint) {
+        $imgPrev->resize(290, null, function ($constraint) {
             $constraint->aspectRatio();
-        });
-        $imgPrev->save($realPathUrl);
+        })->save($realPathUrl . '/' . $image);
         return $imgPrev->response();
     }
 
