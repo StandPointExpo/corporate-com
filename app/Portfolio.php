@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Helpers\ImageHelper;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -50,7 +51,7 @@ class Portfolio extends Model
     public function getMainImageNameAttribute()
     {
         return $this->images()->count()
-            ? \ImageHelper::nameFromUrl($this->images()->first()->file)
+            ? ImageHelper::nameFromUrl($this->images()->first()->file)
             : null;
     }
 

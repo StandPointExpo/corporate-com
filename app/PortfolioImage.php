@@ -2,9 +2,9 @@
 
 namespace App;
 
+use App\Helpers\ImageHelper;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use App\Portfolio;
 
 class PortfolioImage extends Model
 {
@@ -38,7 +38,7 @@ class PortfolioImage extends Model
         if(!is_null($this->preview_file) && file_exists($this->preview_file)) {
             return asset($this->preview_file);
         }
-        return route('image_preview', [$this->id, \ImageHelper::nameFromUrl($this->file)]);
+        return route('image_preview', [$this->id, ImageHelper::nameFromUrl($this->file)]);
 //        return route('imagecache', ['portfolio_medium', $this->file]);
     }
 
