@@ -60,7 +60,7 @@ class Portfolio extends Model
      */
     public function getMainImagePreviewAttribute()
     {
-        return route('image_preview', [$this->id, \ImageHelper::nameFromUrl($this->main_image)]);
+        return route('image_preview', [$this->id, ImageHelper::nameFromUrl($this->main_image)]);
 //        return route('imagecache', ['portfolio_medium', $this->main_image]);
     }
 
