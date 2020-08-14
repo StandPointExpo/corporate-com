@@ -24,7 +24,8 @@ class PortfolioImage extends Model
 
     public function getLargeUrlAttribute()
     {
-        return route('imagecache', ['portfolio_large', $this->file]);
+        return url('/') . $this->file;
+//        return route('imagecache', ['portfolio_large', $this->file]);
     }
 
     public function getLargeImageAttribute()
@@ -37,7 +38,8 @@ class PortfolioImage extends Model
         if(!is_null($this->preview_file) && file_exists($this->preview_file)) {
             return asset($this->preview_file);
         }
-        return route('imagecache', ['portfolio_medium', $this->file]);
+        return route('image_preview', [$this->id, \ImageHelper::nameFromUrl($this->file)]);
+//        return route('imagecache', ['portfolio_medium', $this->file]);
     }
 
     /**
