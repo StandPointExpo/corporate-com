@@ -89,9 +89,6 @@ class Portfolio extends Model
      */
     public function getMainImageThumbAttribute()
     {
-        if(!is_null($previewFile = optional(optional($this->images()->mainImage())->first())->preview_file)) {
-            return asset($previewFile);
-        }
         return $this->main_image_preview;
     }
 
