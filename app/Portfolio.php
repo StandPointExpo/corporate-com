@@ -17,6 +17,7 @@ class Portfolio extends Model
     public $appends = [
         'main_image',
         'main_image_id',
+        'main_image_portfolio_id',
         'main_image_name',
         'main_image_preview',
         'main_image_thumb',
@@ -46,6 +47,16 @@ class Portfolio extends Model
     }
 
     /**
+     * @return int
+     */
+    public function getMainImagePortfolioIdAttribute()
+    {
+        return $this->images()->count()
+            ? optional($this->images()->mainImage())->first()->portfolio_id ?? $this->images()->first()->portfolio_id
+            : null;
+    }
+
+    /**
      * @return string
      */
     public function getMainImageNameAttribute()
@@ -60,7 +71,7 @@ class Portfolio extends Model
      */
     public function getMainImagePreviewAttribute()
     {
-        return route('image_preview', [$this->id, ImageHelper::nameFromUrl($this->main_image)]);
+        return route('image_preview', [$this->main_image_portfolio_id, ImageHelper::nameFromUrl($this->main_image)]);
 //        return route('imagecache', ['portfolio_medium', $this->main_image]);
     }
 

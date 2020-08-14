@@ -83,7 +83,6 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'wh
 });
 //dd(Route::currentRouteAction());
 Route::get('/portfolios/{portfolio}/preview/{image}', function ($portfolio, $image) {
-
     $pathPreview = 'uploads/portfolios/' . $portfolio . '/preview/' . $image;
     $pathOriginal = 'uploads/portfolios/' . $portfolio . '/' . $image;
 
