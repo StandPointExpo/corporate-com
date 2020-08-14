@@ -13,7 +13,14 @@ class Portfolio extends Model
 
     public $fillable = ['title', 'description', 'active', 'client', 'is_front'];
 
-    public $appends = ['main_image', 'main_image_preview', 'main_image_thumb', 'main_image_large'];
+    public $appends = [
+        'main_image',
+        'main_image_id',
+        'main_image_name',
+        'main_image_preview',
+        'main_image_thumb',
+        'main_image_large'
+    ];
 
     protected $with = ['images'];
 
@@ -28,11 +35,32 @@ class Portfolio extends Model
     }
 
     /**
+     * @return int
+     */
+    public function getMainImageIdAttribute()
+    {
+        return $this->images()->count()
+            ? optional($this->images()->mainImage())->first()->id ?? $this->images()->first()->id
+            : null;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMainImageNameAttribute()
+    {
+        return $this->images()->count()
+            ? \ImageHelper::nameFromUrl($this->images()->first()->file)
+            : null;
+    }
+
+    /**
      * @return string
      */
     public function getMainImagePreviewAttribute()
     {
-        return route('imagecache', ['portfolio_medium', $this->main_image]);
+        return route('image_preview', [$this->id, \ImageHelper::nameFromUrl($this->main_image)]);
+//        return route('imagecache', ['portfolio_medium', $this->main_image]);
     }
 
     /**
@@ -40,7 +68,8 @@ class Portfolio extends Model
      */
     public function getMainImageLargeAttribute()
     {
-        return route('imagecache', ['portfolio_large', $this->main_image]);
+        return url('/') . $this->main_image;
+//        return route('imagecache', ['portfolio_large', $this->main_image]);
     }
 
     /**
