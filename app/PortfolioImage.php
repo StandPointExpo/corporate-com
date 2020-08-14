@@ -35,10 +35,7 @@ class PortfolioImage extends Model
 
     public function getPreviewUrlAttribute()
     {
-        if(!is_null($this->preview_file) && file_exists($this->preview_file)) {
-            return asset($this->preview_file);
-        }
-        return route('image_preview', [$this->id, ImageHelper::nameFromUrl($this->file)]);
+        return route('image_preview', [$this->portfolio_id, ImageHelper::nameFromUrl($this->file)]);
 //        return route('imagecache', ['portfolio_medium', $this->file]);
     }
 
