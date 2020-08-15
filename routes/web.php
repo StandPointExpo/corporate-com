@@ -83,55 +83,38 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'wh
 });
 
 Route::get('/portfolios/{portfolio}/preview/{image}', function ($portfolio, $image) {
-
+    //Uncomment for create image preview
     $pathImgPreview = 'uploads/portfolios/' . $portfolio . '/preview/' . $image;
-    
-    if ( Storage::disk('public')->exists($pathImgPreview)) {
+    $dirPreview = 'uploads/portfolios/' . $portfolio . '/preview';
+    $pathImgOriginal = 'uploads/portfolios/' . $portfolio . '/' . $image;
+
+    $getPreviewImg = Storage::disk('public')->exists($pathImgPreview);
+    $getOriginalImg = Storage::disk('public')->exists($pathImgOriginal);
+
+    if ($getPreviewImg) {
         $file = Storage::disk('public')->get($pathImgPreview);
-        $type = Storage::disk('public')->mimeType($pathImgPreview);
+        $type = Storage::disk('public')->mimeType($pathImgOriginal);
         $response = Response::make($file, 200);
         $response->header("Content-Type", $type);
         return $response;
+    }
+    if ($getOriginalImg && !$getPreviewImg) {
+        if(!Storage::disk('public')->exists($dirPreview)){
+            Storage::disk('public')->makeDirectory($dirPreview);
+        }
+
+        $realPathUrl = storage_path('app/public/uploads/portfolios/' . $portfolio);
+        $imgPrev = \Intervention\Image\Facades\Image::make(Storage::disk('public')->get($pathImgOriginal));
+        $imgPrev->orientate();
+        $imgPrev->resize(290, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($realPathUrl . '/preview/' . $image);
+        return $imgPrev->response();
     }
 
     return view('pages.404');
 
 })->name('image_preview');
-
-//Uncomment for create image preview
-//Route::get('/portfolios/{portfolio}/preview/{image}', function ($portfolio, $image) {
-//    //Uncomment for create image preview
-//    $pathImgPreview = 'uploads/portfolios/' . $portfolio . '/preview/' . $image;
-//    $dirPreview = 'uploads/portfolios/' . $portfolio . '/preview';
-//    $pathImgOriginal = 'uploads/portfolios/' . $portfolio . '/' . $image;
-//
-//    $getPreviewImg = Storage::disk('public')->exists($pathImgPreview);
-//    $getOriginalImg = Storage::disk('public')->exists($pathImgOriginal);
-//
-//    if ($getPreviewImg) {
-//        $file = Storage::disk('public')->get($pathImgPreview);
-//        $type = Storage::disk('public')->mimeType($pathImgOriginal);
-//        $response = Response::make($file, 200);
-//        $response->header("Content-Type", $type);
-//        return $response;
-//    }
-//    if ($getOriginalImg && !$getPreviewImg) {
-//        if(!Storage::disk('public')->exists($dirPreview)){
-//            Storage::disk('public')->makeDirectory($dirPreview);
-//        }
-//
-//        $realPathUrl = storage_path('app/public/uploads/portfolios/' . $portfolio);
-//        $imgPrev = \Intervention\Image\Facades\Image::make(Storage::disk('public')->get($pathImgOriginal));
-//        $imgPrev->orientate();
-//        $imgPrev->resize(290, null, function ($constraint) {
-//            $constraint->aspectRatio();
-//        })->save($realPathUrl . '/preview/' . $image);
-//        return $imgPrev->response();
-//    }
-//
-//    return view('pages.404');
-//
-//})->name('image_preview');
 
 
 Route::get('/{any}', function () {
