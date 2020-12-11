@@ -16,8 +16,8 @@
         {{ Form::textarea('message', null, ['placeholder' => trans('ui.your_message'), 'class' => 'form-control', 'id' => 'message']) }}
     @endcomponent
 </div>
-@if(env('GOOGLE_RECAPTCHA_KEY'))
-    <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
+@if(config('contacts.GOOGLE_RECAPTCHA_KEY'))
+    <div class="g-recaptcha" data-sitekey="{{config('contacts.GOOGLE_RECAPTCHA_KEY')}}"></div>
 @endif
 @include('partials.buttons._send')
 {{ Form::close() }}
