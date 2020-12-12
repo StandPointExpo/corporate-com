@@ -3,6 +3,7 @@
 return [
     'send_us'       => 'Get in touch',
     'send_message'  => 'Send message',
+    'send_success'  => 'Your message has been send',
     'your_email'    => 'Your E-mail',
     'your_message'  => 'Your Message',
     'our_partners'  => 'Our partners',

@@ -1,6 +1,6 @@
 <footer class="footer mt-auto">
     <div class="container-fluid">
-        <div class="row bottom-message-block">
+        <div class="row bottom-message-block" id="bottomMessageBlock">
             <div class="container">
                 <h3> @lang('ui.send_us')</h3>
                 <div class="row">

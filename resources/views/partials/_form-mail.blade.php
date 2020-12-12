@@ -1,5 +1,8 @@
-{{ Form::open(['url' => route('send_mail'), 'method' => 'POST']) }}
+@include('shared.errors')
+@include('shared.success')
+{{ Form::open(['url' => route('send_mail'), 'method' => 'POST', 'id' => 'feedbackForm']) }}
 <div class="form-group">
+
     @component('admin.components._group', ['el' => 'name'])
         {{ Form::text('name', null, ['placeholder' => trans('ui.your_name'), 'class' => 'form-control', 'id' => 'name']) }}
     @endcomponent
@@ -16,8 +19,5 @@
         {{ Form::textarea('message', null, ['placeholder' => trans('ui.your_message'), 'class' => 'form-control', 'id' => 'message']) }}
     @endcomponent
 </div>
-@if(config('contacts.GOOGLE_RECAPTCHA_KEY'))
-    <div class="g-recaptcha" data-sitekey="{{config('contacts.GOOGLE_RECAPTCHA_KEY')}}"></div>
-@endif
 @include('partials.buttons._send')
 {{ Form::close() }}
