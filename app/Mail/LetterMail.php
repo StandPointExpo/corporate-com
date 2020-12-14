@@ -39,7 +39,7 @@ class LetterMail extends Mailable
     public function build()
     {
         return $this->from(config('MAIL_TO_ADDRESS', Contact::defaultMail()->first()->email))
-            ->subject('Повідомлення з форми зворотного зв\'язку!')
+            ->subject('=?utf-8?Q?=F0=9F=94=A5?=  ЗАЯВКА НА РОЗРОБКУ СТЕНДУ!')
             ->view('emails.feedback');
     }
 }
