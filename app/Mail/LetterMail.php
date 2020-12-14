@@ -38,8 +38,8 @@ class LetterMail extends Mailable
      */
     public function build()
     {
-        return $this->from(config('mail.from.address', Contact::defaultMail()->first()->email))
-            ->subject('Feedback message from standpoint.com.ua')
+        return $this->from(config('MAIL_TO_ADDRESS', Contact::defaultMail()->first()->email))
+            ->subject('Повідомлення з форми зворотного зв\'язку!')
             ->view('emails.feedback');
     }
 }
