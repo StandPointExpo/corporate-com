@@ -3564,7 +3564,7 @@ a:hover {
     background: url(../img/sprite.png) -122px -28px no-repeat;
 }
 /* end of navigation */
-/* my messages */
+/* my alerts */
 .q-messages .q-message-counter {
     position: relative;
     top: -6px;
@@ -3667,7 +3667,7 @@ a:hover {
 .q-messages ._new-message .q-new-messages__counter {
     display: block;
 }
-/* end of my messages */
+/* end of my alerts */
 /* profile */
 .q-profile__col {
     width: 33.3%;
@@ -5420,7 +5420,7 @@ a:hover {
         -ms-filter: none;
         filter: none;
     }
-    /* messages */
+    /* alerts */
     .q-chat__item {
         padding-right: 80px;
     }
@@ -6308,7 +6308,7 @@ a:hover {
     .q-footer__logo {
         left: -22px;
     }
-    /* messages */
+    /* alerts */
     .q-chat__footer--left,
     .q-chat__footer--right {
         width: 100%;

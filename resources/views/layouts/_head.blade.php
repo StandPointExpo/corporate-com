@@ -24,6 +24,14 @@
         gtag('config', 'UA-158589039-1');
     </script>
 
+    <script>
+        function onSubmit(token) {
+            console.log('token')
+            console.log(token)
+            document.getElementById("feedbackForm").submit();
+        }
+    </script>
+
 
     <!-- Core Scripts -->
     <script src="{{ asset('js/app.js') }}?version=0.5v" defer></script>

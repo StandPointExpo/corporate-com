@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Contact;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -37,6 +38,8 @@ class LetterMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.feedback');
+        return $this->from(config('MAIL_TO_ADDRESS', Contact::defaultMail()->first()->email))
+            ->subject('=?utf-8?Q?=F0=9F=94=A5?=  ЗАЯВКА НА РОЗРОБКУ СТЕНДУ!')
+            ->view('emails.feedback');
     }
 }

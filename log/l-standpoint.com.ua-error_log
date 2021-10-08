@@ -1,0 +1,1 @@
+[Sat Dec 12 04:19:09.301604 2020] [php7:notice] [pid 7533] [client 127.0.0.1:49642] PHP Notice:  date_default_timezone_set(): Timezone ID 'sdssd' is invalid in /Users/drammer.g/Sites/corporate-website/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php on line 49, referer: http://l-standpoint.com.ua/en

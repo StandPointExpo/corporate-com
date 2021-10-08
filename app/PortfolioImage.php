@@ -2,9 +2,9 @@
 
 namespace App;
 
+use App\Helpers\ImageHelper;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use App\Portfolio;
 
 class PortfolioImage extends Model
 {
@@ -24,7 +24,8 @@ class PortfolioImage extends Model
 
     public function getLargeUrlAttribute()
     {
-        return route('imagecache', ['portfolio_large', $this->file]);
+        return url('/') . $this->file;
+//        return route('imagecache', ['portfolio_large', $this->file]);
     }
 
     public function getLargeImageAttribute()
@@ -34,10 +35,8 @@ class PortfolioImage extends Model
 
     public function getPreviewUrlAttribute()
     {
-        if(!is_null($this->preview_file) && file_exists($this->preview_file)) {
-            return asset($this->preview_file);
-        }
-        return route('imagecache', ['portfolio_medium', $this->file]);
+        return url('/') . ImageHelper::filePreviewUrl($this->file);
+//        return route('imagecache', ['portfolio_medium', $this->file]);
     }
 
     /**

@@ -14,9 +14,10 @@ class LetterController extends Controller
 
     public function send(LetterRequest $request)
     {
+
         $this->sendAndStoreLetter($request->validated());
 
-        return $this->backSuccess(); //todo make custom mail message
+        return redirect()->to(url()->previous() . '#bottomMessageBlock')->with('success', __('ui.send_success')); //todo make custom mail message
     }
 
     /**
