@@ -20,6 +20,7 @@ use App\Http\Controllers\{
     HomeController,
     LetterController
 };
+use App\Http\Controllers\Tasks\TaskController;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -77,7 +78,12 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'wh
     Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
     Route::get('/portfolios', [PortfolioController::class, 'index'])->name('portfolios');
     Route::get('/portfolios/{portfolio}', [PortfolioController::class, 'show'])->name('show_images');
-    Route::get('/privacy-policy', function () {
+    Route::get('demands', [TaskController::class, 'index'])->name('task');
+    Route::get('demands/parameter_values', [TaskController::class, 'getParameterValues'])->name('task.parameter_values');
+    Route::post('demands', [TaskController::class, 'store'])->name('task.store');
+    //todo files routes
+ 
+   Route::get('/privacy-policy', function () {
         return view('pages.privacy-policy');
     })->name('privacy_policy');
 });
