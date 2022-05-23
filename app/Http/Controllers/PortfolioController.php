@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use App\Portfolio;
 use Illuminate\Http\Request;
 use App\Repositories\PortfolioRepository;
@@ -22,8 +23,8 @@ class PortfolioController extends Controller
     public function index()
     {
         $portfolios = $this->repository->allActive();
-
-        return view('portfolios', compact('portfolios'));
+        $contact = Contact::first();
+        return view('portfolios', compact('portfolios', 'contact'));
     }
 
     /**

@@ -22,7 +22,15 @@
                 </ul>
             </div>
             <div class="form-inline my-0 phones-menu col-md-4 col-xl-4 col-10 justify-content-sm-start justify-content-md-end">
-                <img src="/images/icons/phone_1.svg"><a href="tel:+380442011149" class="big-phone">+38 (044) 201-11-49,</a><a href="tel:+380442068704">&nbsp;206-87-04</a>
+                <img src="/images/icons/phone_1.svg">
+                @if(isset($contact) && $contact != null)
+                        @foreach($contact->phones as $key => $phone)
+                            @if($loop->even)
+                                ,&nbsp;
+                            @endif
+                            <a href="tel:{{$phone->phone}}" class="big-phone">{{$phone->phone}}</a>
+                        @endforeach
+                @endif
             </div>
             <div class="form-inline lang-menu col-2">
                 @include('layouts._nav-language')
@@ -30,5 +38,4 @@
         </div>
     </div>
 </nav>
-{{--{{ \App\Contact::getNumber() ?? '' }}--}}
 

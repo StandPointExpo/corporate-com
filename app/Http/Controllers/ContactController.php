@@ -13,8 +13,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::first();
+        $contact = Contact::first();
 
-        return view('contacts', compact('contacts'));
+        return view('contacts', compact('contact'));
     }
 }
