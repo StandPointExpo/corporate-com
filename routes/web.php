@@ -136,7 +136,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'wh
     })->name('privacy_policy');
 });
 
-Route::get('/portfolios/{portfolio}/preview/{image}', function ($portfolio, $image) {
+Route::get('/storage/uploads/portfolios/{portfolio}/preview/{image}', function ($portfolio, $image) {
     //Uncomment for create image preview
     $pathImgPreview = 'uploads/portfolios/' . $portfolio . '/preview/' . $image;
     $dirPreview = 'uploads/portfolios/' . $portfolio . '/preview';
