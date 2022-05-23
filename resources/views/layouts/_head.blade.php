@@ -3,8 +3,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('pagename', 'standpoint.com.ua')</title>
-    <meta property="og:title" content="@yield('pagename', 'standpoint.com.ua')">
+    <title>@yield('pagename', 'StandPoint')</title>
+    <meta property="og:title" content="@yield('pagename', 'StandPoint')">
     <meta property="og:site_name" content="StandPoint">
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:description" content="@yield('pagename', __('main.description_title'))">
@@ -26,8 +26,6 @@
 
     <script>
         function onSubmit(token) {
-            console.log('token')
-            console.log(token)
             document.getElementById("feedbackForm").submit();
         }
     </script>

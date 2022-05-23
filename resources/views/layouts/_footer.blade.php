@@ -1,4 +1,6 @@
 <footer class="footer mt-auto">
+    {{ $form = false }}
+    @if($form)
     <div class="container-fluid">
         <div class="row bottom-message-block" id="bottomMessageBlock">
             <div class="container">
@@ -11,6 +13,7 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="container-fluid footer-text-block pt-3">
         <div class="container">
             <div class="row">
@@ -20,11 +23,18 @@
                         @lang('contacts.address') <br>@lang('contacts.address_landmark_footer')
                     </p>
                 </div>
+                @if($contact !== null)
                 <div class="col-sm-12 col-lg-4 col-md-3">
-                    <p class="text-with-icon"><img src="/images/icons/mail.svg" class="footer-icon mail"><a href="mailto:standpoint@iec-expo.com.ua">standpoint@iec-expo.com.ua</a></p>
-                    <p class="text-with-icon"><img src="/images/icons/phone_2.svg" class="footer-icon phone_2"><a href="tel:+380442011149" class="big-phone">+38 (044)
-                            201-11-49</a><br><a href="tel:+380442068704">&nbsp;206-87-04</a></p>
+                    <p class="text-with-icon"><img src="/images/icons/mail.svg" class="footer-icon mail"><a href="mailto:{{$contact->email}}">{{$contact->email}}</a></p>
+                    <p class="text-with-icon"><img src="/images/icons/phone_2.svg" class="footer-icon phone_2">
+                        @if(optional($contact->phones) !== null)
+                            @foreach( $contact->phones as $key => $phone)
+                            <a href="tel:{{$phone->phone}}" class="big-phone">{{$phone->phone}}</a><br>
+                            @endforeach
+                        @endif
+                        </p>
                 </div>
+                @endif
                 <div class="col-sm-12 col-lg-4 col-md-3">
                     <p class="social-icons">
                         <a href="https://www.facebook.com/Standpoint-229904720516883" target="_blank"><img src="/images/icons/fb.svg"></a>

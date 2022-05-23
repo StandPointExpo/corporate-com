@@ -56,6 +56,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'adm
     });
     Route::resource('partners', 'Admin\AdminPartnerController');
     Route::resource('contacts', 'Admin\AdminContactController');
+    Route::resource('contacts/phones', 'Admin\AdminContactPhoneController');
     Route::resource('pages', 'Admin\AdminPageController');
     Route::group(['prefix' => 'pages/{page}/articles', 'as' => 'pages_articles.'], function () {
         Route::get('', [AdminPageController::class, 'articles'])->name('index');
