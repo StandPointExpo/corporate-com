@@ -13,6 +13,10 @@ npm-debug.log
 yarn-error.log
 composer.lock
 package-lock.json
+error_log
+index.html
+/resseler
+reseller/
 .DS_Store
 .*
 .docker
