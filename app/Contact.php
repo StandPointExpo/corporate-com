@@ -27,6 +27,14 @@ class Contact extends Model
     }
 
     /**
+     * @return mixed
+     */
+    public function phones()
+    {
+        return $this->hasMany(ContactPhone::class, 'contact_id');
+    }
+
+    /**
      * @param Builder $query
      * @return Builder
      */

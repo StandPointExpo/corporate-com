@@ -33,9 +33,9 @@ class MainController extends Controller
         $frontPortfolios    = $this->portfolioRepository->frontPreview();
         $pageText           = $this->pageRepository->mainPage();
         $partners           = Partner::all();
-        $contacts           = Contact::all();
+        $contact           = Contact::first();
 
-        return view('index', compact('pageText', 'frontPortfolios', 'partners'));
+        return view('index', compact('pageText', 'frontPortfolios', 'partners', 'contact'));
     }
 
     /**

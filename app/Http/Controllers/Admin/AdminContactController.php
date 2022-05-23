@@ -27,7 +27,14 @@ class AdminContactController extends Controller
      */
     public function update(Contact $contact, AdminContactUpdateRequest $request)
     {
-        $contact->update($request->only(['address', 'email', 'phone']));
+        $contact->update($request->only(['address', 'email']));
+        $contact->phones()->delete();
+        $phones = collect($request->phones);
+        $phones->each(function ($phone) use ($contact) {
+            $contact->phones()->create([
+                'phone' => $phone
+            ]);
+        });
         return $this->backSuccess();
     }
 
