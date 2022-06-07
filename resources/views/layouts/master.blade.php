@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html  lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<meta name="facebook-domain-verification" content="pfvmp91e29x47ikhds3nzjmfuhsf9o" />
 @include('layouts._head')
 <body>
 

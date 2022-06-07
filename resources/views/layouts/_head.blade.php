@@ -9,7 +9,7 @@
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:description" content="@yield('pagename', __('main.description_title'))">
     <meta property="og:image" content="{{url('/')}}/images/icons/logo.svg">
-
+    <meta name="facebook-domain-verification" content="pfvmp91e29x47ikhds3nzjmfuhsf9o" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
