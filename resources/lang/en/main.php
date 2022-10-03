@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'target_title'      => 'We <span>build</span><br> all over<br> Europe',
-    'description_title' => 'the largest exhibition standbuilder<br> company in Ukraine'
+    'target_title'      => 'EXHIBITION STAND<br> DESIGN AND<br> PRODUCTION',
+    'description_title' => 'More than 15 years of experience.<br> Over 10,000 implemented projects.'
 ];
