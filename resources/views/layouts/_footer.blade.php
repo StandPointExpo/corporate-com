@@ -22,7 +22,7 @@
                         <img src="/images/icons/map_point.svg" class="footer-icon map_point">
                         {{--                        @lang('contacts.address') <br>@lang('contacts.address_landmark_footer')--}}
                         @if(optional($contact->address))
-                            {{$contact->address}}
+                            {!! $contact->address  !!}
                         @endif
                     </p>
                 </div>
