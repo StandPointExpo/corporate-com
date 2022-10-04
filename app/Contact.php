@@ -40,6 +40,6 @@ class Contact extends Model
      */
     public function scopeDefaultMail(Builder $query)
     {
-        return $query->where('name', 'standpoint.com.ua');
+        return $query->where('name', 'standpoint-expo.com');
     }
 }

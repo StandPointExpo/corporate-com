@@ -8,10 +8,10 @@ class ContactsSeeder extends Seeder
 {
 
     private $contacts = [
-        'name' => 'standpoint.com.ua',
+        'name' => 'standpoint-expo.com',
         'address' => 'International Exhibition Center Brovarsky Ave. 15 02002 Kyiv, Ukraine',
-        'email' => 'standpoint@iec-expo.com.ua',
-        'phone' => '+38 (044) 201-11-49'
+        'email' => 'our.team@standpoint-expo.com',
+        'phone' => '+49 151 11065913'
     ];
 
     /**

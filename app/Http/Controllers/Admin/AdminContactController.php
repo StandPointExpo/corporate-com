@@ -16,7 +16,7 @@ class AdminContactController extends Controller
      */
     public function index()
     {
-        $contact = Contact::firstOrCreate(['name' => 'standpoint.com.ua']);
+        $contact = Contact::firstOrCreate(['name' => 'standpoint-expo.com']);
         return view('admin.modules.contacts.index', compact('contact'));
     }
 
