@@ -332,8 +332,8 @@ body {
     }
 
     .display-slogan {
-        font-size: 120px;
-        font-size: calc(6.185vw + 10px);
+        font-size: 92px;
+        //font-size: calc(6.185vw + 10px);
         text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
         font-weight: 600;
         font-family: "Myriad Pro SemiBold";
@@ -342,7 +342,7 @@ body {
         z-index: 10;
         left: 23px;
         line-height: 112px;
-        line-height: calc(6.185vw + 10px);
+        //line-height: calc(6.185vw + 10px);
 
         span {
             color: #ea6a07;

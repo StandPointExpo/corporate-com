@@ -125,7 +125,18 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'adm
     });
 });
 
-Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => ['web', 'setLocate']], function () {
+//Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale(), 'where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => ['web', 'setLocate']], function () {
+//
+//    Route::get('/', [MainController::class, 'index'])->name('main');
+//    Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
+//    Route::get('/portfolios', [PortfolioController::class, 'index'])->name('portfolios');
+//    Route::get('/portfolios/{portfolio}', [PortfolioController::class, 'show'])->name('show_images');
+//    Route::get('/privacy-policy', function () {
+//        return view('pages.privacy-policy');
+//    })->name('privacy_policy');
+//});
+
+Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', [MainController::class, 'index'])->name('main');
     Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
