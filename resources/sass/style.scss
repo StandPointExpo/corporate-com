@@ -937,3 +937,14 @@ img[lazy=loaded] {
         transform: rotate(-180deg) skew(-360deg);
     }
 }
+
+.description-company .video {
+    float: left; padding-right: 20px;
+    @media (max-width: 768px) {
+        float: inherit; padding-right: 0;
+    }
+}
+
+.description-company .video iframe {
+    max-width: 100%;
+}
