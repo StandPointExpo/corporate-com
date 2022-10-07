@@ -12,14 +12,13 @@ use App\Http\Controllers\Admin\{
     LoginController
 };
 use Illuminate\Support\Facades\Response;
-use App\Http\Controllers\{
+use App\Http\Controllers\{BriefController,
     MainController,
     ContactController,
     PortfolioController,
     PortfolioImageController,
     HomeController,
-    LetterController
-};
+    LetterController};
 
 use Illuminate\Support\Facades\Password;
 use Illuminate\Http\Request;
@@ -140,6 +139,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', [MainController::class, 'index'])->name('main');
     Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
+    Route::get('/briefs/create', [BriefController::class, 'create'])->name('briefs.create');
     Route::get('/portfolios', [PortfolioController::class, 'index'])->name('portfolios');
     Route::get('/portfolios/{portfolio}', [PortfolioController::class, 'show'])->name('show_images');
     Route::get('/privacy-policy', function () {
