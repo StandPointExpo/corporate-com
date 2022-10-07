@@ -4,9 +4,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import Vue from "vue";
+
 require('./bootstrap');
 
-window.Vue = require('vue');
+window.Vue = Vue;
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,6 +25,7 @@ window.Vue = require('vue');
 // Vue.component('portfolio-component', require('./components/PortfolioComponent.vue').default);
 
 import PortfolioComponent from './components/PortfolioComponent.vue';
+import BriefCreateComponent from './components/BriefCreateComponent.vue';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -59,6 +62,7 @@ const app = new Vue({
     el: '#app',
     components: {
       'portfolio-component': PortfolioComponent,
+      'brief-create-component': BriefCreateComponent,
     },
     data: function(){
         return {
@@ -135,7 +139,7 @@ const app = new Vue({
     },
     watch:{
         closePrivacyBlock: function(){
-            if(this.closePrivacyBlock == true){
+            if(this.closePrivacyBlock === true){
                 this.setCookie('close_privacy', 'true', {'expires': 31536000});
             }else{
                 this.deleteCookie('close_privacy');

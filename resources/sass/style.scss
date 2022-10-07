@@ -24,6 +24,7 @@ body {
     background-repeat: no-repeat;
     padding: .6rem 1rem .1rem;
     background-size: cover;
+
     .navbar-collapse {
         @media (min-width: 768px) {
             padding-right: 4px;
@@ -496,7 +497,7 @@ body {
     }
 }
 
-.custom-btn-outline-warning{
+.custom-btn-outline-warning {
     border-color: $corporate;
     font-size: 18px;
     color: $corporate;
@@ -504,6 +505,7 @@ body {
     padding: 15px 30px;
     max-width: 372px;
     background: transparent;
+
     &:hover,
     &:active,
     &:focus {
@@ -763,20 +765,22 @@ body {
 
 .portfolio-page {
     padding-top: 6rem;
-    @media all and (max-width: 991px){
+    @media all and (max-width: 991px) {
         padding-top: 6rem;
     }
-    @media all and (max-width: 768px){
+    @media all and (max-width: 768px) {
         padding-top: 3rem;
     }
+
     .portfolio-header {
         text-align: center;
         margin-bottom: 2rem;
         margin-top: 1rem;
+
         img {
             height: 180px;
             max-width: 100%;
-            @media (max-width: 768px){
+            @media (max-width: 768px) {
                 height: auto;
                 margin: auto;
             }
@@ -794,9 +798,11 @@ body {
             }
         }
     }
+
     @include box-portfolio;
 }
-.project-info{
+
+.project-info {
     cursor: pointer;
 }
 
@@ -806,6 +812,7 @@ body {
     z-index: 100;
     background: rgba(0, 0, 0, 0.65);
     width: 100%;
+
     button {
         background: transparent;
         border: 1px solid $corporate;
@@ -813,10 +820,12 @@ body {
         padding: 5px 16px;
         margin: 5px 25px;
         color: $white;
-        &:hover{
+
+        &:hover {
             background: $corporate;
         }
     }
+
     p {
         padding: 5px 15px;
         font-size: 14px;
@@ -825,15 +834,18 @@ body {
 
     }
 }
+
 .vel-img-wrapper img {
     max-width: 100%;
 }
-.loading-lightbox{
+
+.loading-lightbox {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
+
 .btn__close, .btn__next, .btn__prev {
     position: absolute;
     top: 50%;
@@ -850,14 +862,17 @@ body {
 .btn__prev {
     left: 12px;
 }
+
 .btn__prev.disable,
 .btn__prev.disable:hover {
     cursor: default;
     opacity: .2;
 }
+
 .btn__next {
     right: 12px;
 }
+
 .vel-icon {
     width: 1em;
     height: 1em;
@@ -865,9 +880,11 @@ body {
     fill: currentColor;
     overflow: hidden;
 }
-.loading-lightbox{
+
+.loading-lightbox {
     position: relative;
 }
+
 .preloader {
     height: 100px;
     width: 100px;
@@ -877,6 +894,7 @@ body {
     top: 0;
     bottom: 0;
     margin: auto;
+
     &:before,
     &:after {
         content: "";
@@ -887,10 +905,12 @@ body {
         top: 45%;
         left: 48%;
     }
-    &:before{
+
+    &:before {
         border: 8px solid #ed6c0b;
     }
-    &:after{
+
+    &:after {
         border: 8px solid #441b15;
     }
 
@@ -901,7 +921,8 @@ body {
     &:after {
         animation: animate2 2s infinite linear;
     }
-    &.loaded{
+
+    &.loaded {
         height: inherit;
         width: inherit;
         position: relative;
@@ -910,16 +931,19 @@ body {
         margin-left: inherit;
         margin-top: inherit;
         top: inherit;
+
         &:before,
-        &:after{
+        &:after {
             display: none;
         }
 
     }
 }
+
 img[lazy=error] {
     /*your style here*/
 }
+
 img[lazy=loaded] {
 
     /*your style here*/
@@ -939,12 +963,125 @@ img[lazy=loaded] {
 }
 
 .description-company .video {
-    float: left; padding-right: 20px;
+    float: left;
+    padding-right: 20px;
     @media (max-width: 768px) {
-        float: inherit; padding-right: 0;
+        float: inherit;
+        padding-right: 0;
     }
 }
 
 .description-company .video iframe {
     max-width: 100%;
+}
+
+.brief-page {
+    padding: 5rem 0;
+
+    .brief-page__header {
+        position: relative;
+
+        .logo {
+            max-width: 200px;
+            max-height: inherit;
+        }
+
+        &:before {
+            content: '';
+            width: 100%;
+            height: 90%;
+            display: block;
+            position: absolute;
+            background-color: $gray;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        p a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        p a:hover, p a:focus {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+    .brief-page__create-component-title {
+        font-size: 25px;
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .table {
+        h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .scope-row {
+            width: 20px;
+            background-color: $gray;
+        }
+
+        .thead-light th {
+            background-color: $gray;
+            border: 0 #dee2e6;
+
+        }
+
+        tbody {
+            margin-top: 5px;
+            display: inline-table;
+            width: 100%;
+
+            th {
+                border-top: 0;
+            }
+
+            td {
+                border-top: 0;
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+.form-group.custom-form-group {
+    .form-control {
+        display: block;
+        border-radius: 0;
+    }
+
+    .form-control:focus {
+        border-color: $corporate;
+        box-shadow: 0 0 0 0.2rem $corporate-light;
+    }
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    color: #FFFFFF;
+    border-color: $corporate;
+    background-color: $corporate;
+}
+
+.btn.btn-corporate {
+    border-radius: 0;
+}
+
+.btn.btn-outline-corporate {
+    border-color: $corporate;
+    color: $corporate;
+}
+
+.btn.btn-outline-corporate:hover,
+.btn.btn-outline-corporate:focus {
+    background-color: $corporate;
+    color: $white;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem $corporate-light;
 }

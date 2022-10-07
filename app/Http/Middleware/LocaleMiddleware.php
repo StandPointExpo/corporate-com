@@ -13,6 +13,7 @@ class LocaleMiddleware
 
         $segmentsURI = request()->segment(1);
 
+
         return !empty($segmentsURI) && in_array($segmentsURI, Language::LANGUAGES)
             ? $segmentsURI
             : Language::MAIN_LANGUAGE;
