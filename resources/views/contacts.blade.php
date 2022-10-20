@@ -11,10 +11,10 @@
                     <h1 class="display-4">@lang('ui.contacts')</h1>
                     <br>
                     @if($contact !== null)
-                        @if(optional($contact->address) !== null)
+                        @if(!is_null(optional($contact)->address))
                             <p> {!! $contact->address !!}</p>
                         @endif
-                    @if(optional($contact->phones) !== null)
+                    @if(is_null(optional($contact)->phones))
                     <div class="mb-3">@lang('contacts.telephone_fax'):
                         @foreach( $contact->phones as $key => $phone)
                         <div><a href="tel:{{$phone->phone}}" class="big-phone">{{$phone->phone}}</a></div>

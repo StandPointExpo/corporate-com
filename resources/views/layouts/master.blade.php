@@ -13,5 +13,6 @@
 </div>
 @stack('modals')
 @include('layouts._scripts')
+@stack('scripts')
 </body>
 </html>

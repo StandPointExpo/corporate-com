@@ -31,8 +31,8 @@
     </script>
 
 
-    <!-- Core Scripts -->
-    <script src="{{ asset('js/app.js') }}?version=0.5v" defer></script>
+    <!-- Core Scripts -->пофіксить скрипти
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
     <!-- Core stylesheets -->
     <link rel="stylesheet" href="{{URL::asset('css/app.css')}}?version=0.5v">

@@ -14,4 +14,9 @@ class BriefController extends Controller
         $contact = Contact::first();
         return view('briefs.create', compact('contact', 'phones'));
     }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
 }
