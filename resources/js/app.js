@@ -3,12 +3,9 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
-import Vue from "vue";
-
 require("./bootstrap");
 
-window.Vue = Vue;
+const Vue = window.Vue;
 
 /**
  * The following block of code may be used to automatically register your
@@ -25,7 +22,7 @@ window.Vue = Vue;
 // Vue.component('portfolio-component', require('./components/PortfolioComponent.vue').default);
 
 import PortfolioComponent from "./components/PortfolioComponent.vue";
-import BriefHeader from './components/BriefHeader.vue';
+import BriefHeader from "./components/BriefHeader.vue";
 import InputText from "./components/Inputs/text.vue";
 import InputRadio from "./components/Inputs/radio.vue";
 import InputEmail from "./components/Inputs/email.vue";
@@ -99,6 +96,7 @@ const app = new Vue({
         });
     },
     created: function () {
+        console.log("vue init");
         if (this.getCookie("close_privacy")) this.closePrivacyBlock = true;
     },
     methods: {

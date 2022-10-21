@@ -1085,3 +1085,22 @@ img[lazy=loaded] {
     outline: 0;
     box-shadow: 0 0 0 0.2rem $corporate-light;
 }
+
+
+body .toast.toast-error .toast-header {
+        color: $red;
+        background-color: rgba(213, 41, 41, 0.322);
+}
+body .toast.toast-error {
+    color: $red;
+}
+
+body .required > label {
+    position: relative;
+    &:after{
+        position: relative;
+        content: '*';
+        color: $red;
+        margin: 0 0 0 5px;
+    }
+}

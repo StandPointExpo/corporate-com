@@ -6,13 +6,15 @@
 <!-- Content -->
 <div id="app">
     @include('layouts._navigation')
-    @yield('content')
 
+    @yield('content')
 
     @include('layouts._footer')
 </div>
 @stack('modals')
+
 @include('layouts._scripts')
-@stack('scripts')
+<!-- Core Scripts -->
+<script type="text/javascript" src="{{ mix('js/app.js') }}" defer></script>
 </body>
 </html>

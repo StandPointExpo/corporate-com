@@ -1771,29 +1771,26 @@ render._withStripped = true;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var _components_PortfolioComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/PortfolioComponent.vue */ "./resources/js/components/PortfolioComponent.vue");
-/* harmony import */ var _components_BriefHeader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/BriefHeader.vue */ "./resources/js/components/BriefHeader.vue");
-/* harmony import */ var _components_Inputs_text_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Inputs/text.vue */ "./resources/js/components/Inputs/text.vue");
-/* harmony import */ var _components_Inputs_radio_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Inputs/radio.vue */ "./resources/js/components/Inputs/radio.vue");
-/* harmony import */ var _components_Inputs_email_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Inputs/email.vue */ "./resources/js/components/Inputs/email.vue");
-/* harmony import */ var _components_Inputs_textarea_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Inputs/textarea.vue */ "./resources/js/components/Inputs/textarea.vue");
-/* harmony import */ var headroom_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! headroom.js */ "./node_modules/headroom.js/dist/headroom.js");
-/* harmony import */ var headroom_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(headroom_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var lightbox2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lightbox2 */ "./node_modules/lightbox2/dist/js/lightbox.js");
-/* harmony import */ var lightbox2__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lightbox2__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var vue_lazyload__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-lazyload */ "./node_modules/vue-lazyload/vue-lazyload.esm.js");
-/* harmony import */ var vue_analytics__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue-analytics */ "./node_modules/vue-analytics/dist/vue-analytics.js");
-/* harmony import */ var vue_analytics__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(vue_analytics__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _components_PortfolioComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/PortfolioComponent.vue */ "./resources/js/components/PortfolioComponent.vue");
+/* harmony import */ var _components_BriefHeader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/BriefHeader.vue */ "./resources/js/components/BriefHeader.vue");
+/* harmony import */ var _components_Inputs_text_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Inputs/text.vue */ "./resources/js/components/Inputs/text.vue");
+/* harmony import */ var _components_Inputs_radio_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Inputs/radio.vue */ "./resources/js/components/Inputs/radio.vue");
+/* harmony import */ var _components_Inputs_email_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Inputs/email.vue */ "./resources/js/components/Inputs/email.vue");
+/* harmony import */ var _components_Inputs_textarea_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Inputs/textarea.vue */ "./resources/js/components/Inputs/textarea.vue");
+/* harmony import */ var headroom_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! headroom.js */ "./node_modules/headroom.js/dist/headroom.js");
+/* harmony import */ var headroom_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(headroom_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var lightbox2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lightbox2 */ "./node_modules/lightbox2/dist/js/lightbox.js");
+/* harmony import */ var lightbox2__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lightbox2__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var vue_lazyload__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-lazyload */ "./node_modules/vue-lazyload/vue-lazyload.esm.js");
+/* harmony import */ var vue_analytics__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-analytics */ "./node_modules/vue-analytics/dist/vue-analytics.js");
+/* harmony import */ var vue_analytics__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_analytics__WEBPACK_IMPORTED_MODULE_9__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
-
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-window.Vue = vue__WEBPACK_IMPORTED_MODULE_0__["default"];
+var Vue = window.Vue;
 
 /**
  * The following block of code may be used to automatically register your
@@ -1826,10 +1823,10 @@ window.Vue = vue__WEBPACK_IMPORTED_MODULE_0__["default"];
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].use((vue_analytics__WEBPACK_IMPORTED_MODULE_10___default()), {
+Vue.use((vue_analytics__WEBPACK_IMPORTED_MODULE_9___default()), {
   id: "UA-158589039-1"
 });
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_lazyload__WEBPACK_IMPORTED_MODULE_9__["default"], {
+Vue.use(vue_lazyload__WEBPACK_IMPORTED_MODULE_8__["default"], {
   preLoad: 1.3,
   attempt: 1,
   loading: "/images/ajax-loader.gif",
@@ -1846,15 +1843,15 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_lazyload__WEBPACK_IMPORTED_M
   // }
 });
 
-var app = new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
+var app = new Vue({
   el: "#app",
   components: {
-    "portfolio-component": _components_PortfolioComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    "brief-header": _components_BriefHeader_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "input-text": _components_Inputs_text_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    "input-radio": _components_Inputs_radio_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "input-email": _components_Inputs_email_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    "input-textarea": _components_Inputs_textarea_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    "portfolio-component": _components_PortfolioComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    "brief-header": _components_BriefHeader_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "input-text": _components_Inputs_text_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "input-radio": _components_Inputs_radio_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "input-email": _components_Inputs_email_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    "input-textarea": _components_Inputs_textarea_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
@@ -1865,7 +1862,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
   },
   mounted: function mounted() {
     var headerMenu = document.querySelector("nav");
-    var headroom = new (headroom_js__WEBPACK_IMPORTED_MODULE_7___default())(headerMenu, {
+    var headroom = new (headroom_js__WEBPACK_IMPORTED_MODULE_6___default())(headerMenu, {
       offset: 105,
       tolerance: 5,
       classes: {
@@ -1875,12 +1872,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
       }
     });
     headroom.init();
-    lightbox2__WEBPACK_IMPORTED_MODULE_8___default().option({
+    lightbox2__WEBPACK_IMPORTED_MODULE_7___default().option({
       resizeDuration: 200,
       wrapAround: false
     });
   },
   created: function created() {
+    console.log("vue init");
     if (this.getCookie("close_privacy")) this.closePrivacyBlock = true;
   },
   methods: {
@@ -1968,7 +1966,7 @@ try {
  */
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/dist/node/axios.cjs");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
