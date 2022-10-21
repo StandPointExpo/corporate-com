@@ -1922,6 +1922,13 @@ var app = new Vue({
         eventAction: "download",
         eventLabel: "Standpoint Presentation"
       });
+    },
+    downloadBrief: function downloadBrief() {
+      this.$ga.event({
+        eventCategory: "Brief",
+        eventAction: "download",
+        eventLabel: "Standpoint Brief"
+      });
     }
   },
   watch: {

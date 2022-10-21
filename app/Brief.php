@@ -13,7 +13,7 @@ class Brief extends Model
         'company_name',
         'company_person',
         'company_number',
-        'company_email',
+        'email',
         'value',
     ];
 }

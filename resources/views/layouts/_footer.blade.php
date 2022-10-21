@@ -43,10 +43,10 @@
                     <p class="social-icons">
                         <a href="https://www.facebook.com/Standpoint-229904720516883" target="_blank"><img
                                 src="/images/icons/fb.svg"></a>
-                        <a href="#" target="_blank"><img src="/images/icons/tw.svg"></a>
-                        <a href="#" target="_blank"><img src="/images/icons/linkedin.svg"></a>
+{{--                        <a href="#" target="_blank"><img src="/images/icons/tw.svg"></a>--}}
+{{--                        <a href="#" target="_blank"><img src="/images/icons/linkedin.svg"></a>--}}
+                        <a href="{{url('/')}}">{{url('/')}}</a>
                     </p>
-                    <p><a href="{{url('/')}}">{{url('/')}}</a></p>
                 </div>
             </div>
         </div>

@@ -149,6 +149,14 @@ const app = new Vue({
                 eventLabel: "Standpoint Presentation",
             });
         },
+
+        downloadBrief() {
+            this.$ga.event({
+                eventCategory: "Brief",
+                eventAction: "download",
+                eventLabel: "Standpoint Brief",
+            });
+        },
     },
     watch: {
         closePrivacyBlock: function () {
