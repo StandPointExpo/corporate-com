@@ -9838,8 +9838,10 @@ body {
 .description-company {
   color: #333333;
   font-size: 16px;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  /* padding-top: 5rem; */
+  /* padding-bottom: 5rem; */
+  justify-content: center;
+  align-self: center;
 }
 .description-company p {
   margin-top: 1.3rem;
@@ -10489,6 +10491,8 @@ body .required > label:after {
 .description-company-wrap {
   position: relative;
   height: 100vh;
+  min-height: 640px;
+  display: flex;
 }
 
 .description-company__posterimage {

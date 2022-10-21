@@ -422,8 +422,10 @@ body {
 .description-company {
     color: $text;
     font-size: 16px;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    /* padding-top: 5rem; */
+    /* padding-bottom: 5rem; */
+    justify-content: center;
+    align-self: center;
 
     p {
         //margin-top: 2.3rem;
@@ -1117,6 +1119,8 @@ body .required > label {
 .description-company-wrap {
     position: relative;
     height: calc(100vh);
+    min-height: 640px;
+    display: flex;
 }
 
 .description-company__posterimage {
