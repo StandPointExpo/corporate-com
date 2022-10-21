@@ -5,7 +5,9 @@
 /vendor
 /logs
 /public/js
-/public/css
+/public/js/app.js
+/public/css/
+/public/mix-manifest.json
 .env
 .env.backup
 .phpunit.result.cache

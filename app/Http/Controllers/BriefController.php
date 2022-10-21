@@ -26,7 +26,7 @@ class BriefController extends Controller
             $data['company_name'] = $request->get('company_name');
             $data['company_person'] = $request->get('company_person');
             $data['company_number'] = $request->get('company_number');
-            $data['email'] = $request->get('email');
+            $data['email'] = $request->get('company_email');
             $data['value'] = json_encode($request->all());
 
             Brief::create($data);
