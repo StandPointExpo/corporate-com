@@ -70,7 +70,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                             <thead class="thead-light">
                             <tr>
                                 <th colspan="2">
-                                    <h6>About the company:</h6>
+                                    <h2>About the company:</h2>
                                 </th>
                             </tr>
                             </thead>
@@ -78,7 +78,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                             @foreach ($briefValue as $key => $data)
                                 @if ($key === 'company_name')
                                     <tr>
-                                        <td align="center">
+                                        <td align="left">
                                             Company name:
                                         </td>
                                         <td align="left">
@@ -89,7 +89,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                                 @if ($key === 'company_person')
 
                                     <tr>
-                                        <td align="center">
+                                        <td align="left">
                                             Contact Person:
                                         </td>
                                         <td align="left">
@@ -100,7 +100,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                                 @if ($key === 'company_number')
 
                                     <tr>
-                                        <td align="center">
+                                        <td align="left">
                                             Contact No:
                                         </td>
                                         <td align="left">
@@ -111,7 +111,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                                 @if ($key === 'company_email')
 
                                     <tr>
-                                        <td align="center">
+                                        <td align="left">
                                             Email:
                                         </td>
                                         <td align="left">
@@ -122,7 +122,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                                 @if ($key === 'company_web')
 
                                     <tr>
-                                        <td align="center">
+                                        <td align="left">
                                             Web Site:
                                         </td>
                                         <td align="left">
@@ -133,10 +133,12 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                             @endforeach
                             </tbody>
                         </table>
+                        <table style="{{ $style['body_action'] }}" align="center" width="100%" cellpadding="0"
+                               cellspacing="0">
                         <thead class="thead-light">
                         <tr>
                             <th colspan="2">
-                                <h6>Event:</h6>
+                                <h2>Event:</h2>
                             </th>
                         </tr>
                         </thead>
@@ -144,7 +146,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                         @foreach ($briefValue as $key => $data)
                             @if ($key === 'event_name')
                                 <tr>
-                                    <td align="center">
+                                    <td align="left">
                                         Exhibition name:
                                     </td>
                                     <td align="left">
@@ -154,7 +156,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                             @endif
                             @if ($key === 'event_location')
                                 <tr>
-                                    <td align="center">
+                                    <td align="left">
                                         Exhibition location:
                                     </td>
                                     <td align="left">
@@ -164,7 +166,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                             @endif
                             @if ($key === 'event_date')
                                 <tr>
-                                    <td align="center">
+                                    <td align="left">
                                         Exhibition dates:
                                     </td>
                                     <td align="left">
@@ -174,7 +176,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                             @endif
                             @if ($key === 'event_date')
                                 <tr>
-                                    <td align="center">
+                                    <td align="left">
                                         Exhibition dates:
                                     </td>
                                     <td align="left">
@@ -185,11 +187,12 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                         @endforeach
                         </tbody>
             </table>
-            <table>
+                        <table style="{{ $style['body_action'] }}" align="center" width="100%" cellpadding="0"
+                               cellspacing="0">
                 <thead class="thead-light">
                 <tr>
                     <th colspan="2">
-                        <h6>Stand area:</h6>
+                        <h2>Stand area:</h2>
                     </th>
                 </tr>
                 </thead>
@@ -197,7 +200,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @foreach ($briefValue as $key => $data)
                     @if ($key === 'stand_area_size')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 Stand Size (length and depth):
                             </td>
                             <td align="left">
@@ -207,7 +210,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'stand_area_stand_no')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 Stand No.:
                             </td>
                             <td align="left">
@@ -217,7 +220,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'stand_area_attach_plan')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 Attach hall plan with stand location:
                             </td>
                             <td align="left">
@@ -228,11 +231,12 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @endforeach
                 </tbody>
             </table>
-            <table>
+                        <table style="{{ $style['body_action'] }}" align="center" width="100%" cellpadding="0"
+                               cellspacing="0">
                 <thead class="thead-light">
                 <tr>
                     <th colspan="2">
-                        <h6>Indicate positions for your stand design:</h6>
+                        <h2>Indicate positions for your stand design:</h2>
                         <small>(yes/no/quantity)</small>
                     </th>
                 </tr>
@@ -241,7 +245,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @foreach($briefValue as $key => $data)
                     @if ($key === 'positions_of_design_info_counter')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - info counter:
                             </td>
                             <td align="left">
@@ -251,7 +255,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'positions_of_design_meeting_rooms')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - meeting rooms (closed/half-closed):
                             </td>
                             <td align="left">
@@ -261,7 +265,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'positions_of_design_meeting_places')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - meeting places (open):
                             </td>
                             <td align="left">
@@ -271,7 +275,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'positions_of_design_storage_room')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - storage room (shelf, refrigerator, coffee maker, etc.):
                             </td>
                             <td align="left">
@@ -281,7 +285,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'positions_of_design_podium')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - podium for equipment (LxWxH):
                             </td>
                             <td align="left">
@@ -291,7 +295,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'positions_of_design_showcase')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - showcase:
                             </td>
                             <td align="left">
@@ -301,7 +305,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'positions_of_design_screen')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - LED Screen / TV:
                             </td>
                             <td align="left">
@@ -311,7 +315,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'positions_of_design_floor')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - floor: (carpet/ laminate/ raised-floor h = mm):
                             </td>
                             <td align="left">
@@ -321,7 +325,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'positions_of_design_suspension_structure')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - suspension structure:
                             </td>
                             <td align="left">
@@ -332,11 +336,12 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @endforeach
                 </tbody>
             </table>
-            <table>
+                        <table style="{{ $style['body_action'] }}" align="center" width="100%" cellpadding="0"
+                               cellspacing="0">
                 <thead class="thead-light">
                 <tr>
                     <th colspan="2">
-                        <h6>Elements of design (indicate/attach):</h6>
+                        <h2>Elements of design (indicate/attach):</h2>
                     </th>
                 </tr>
                 </thead>
@@ -344,7 +349,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @foreach($briefValue as $key => $data)
                     @if ($key === 'elements_of_design_company_logo')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - company’s logo in ai, cdr, eps formats:
                             </td>
                             <td align="left">
@@ -354,7 +359,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'elements_of_design_corporate_colors')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - corporate colors/ pantone / ral or ORACAL:
                             </td>
                             <td align="left">
@@ -364,7 +369,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'elements_of_design_brand_book')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - brand book:
                             </td>
                             <td align="left">
@@ -374,7 +379,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'elements_of_design_graphic_files')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - graphic files: existing posters & branding or Product Photos:
                             </td>
                             <td align="left">
@@ -384,7 +389,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'elements_of_design_colors_preferred')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - colors preferred:
                             </td>
                             <td align="left">
@@ -394,7 +399,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'elements_of_design_stand_style')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - stand style (minimalistic, curvy, semi curve, european, thematic, heavy, light,
                                 open…etc..):
                             </td>
@@ -405,7 +410,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                     @endif
                     @if ($key === 'elements_of_design_previous_experience_design')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 - anything from your previous experience that you prefer to repeat in the Design:
                             </td>
                             <td align="left">
@@ -416,11 +421,12 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @endforeach
                 </tbody>
             </table>
-            <table class="table">
+                        <table style="{{ $style['body_action'] }}" align="center" width="100%" cellpadding="0"
+                               cellspacing="0">
                 <thead class="thead-light">
                 <tr>
                     <th colspan="2">
-                        <h6>Your product list (name, quantity & LxWxH):</h6>
+                        <h2>Your product list (name, quantity & LxWxH):</h2>
                     </th>
                 </tr>
                 </thead>
@@ -428,7 +434,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @foreach($briefValue as $key => $data)
                     @if ($key === 'product_list')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 &nbsp;
                             </td>
                             <td align="left">
@@ -439,11 +445,12 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @endforeach
                 </tbody>
             </table>
-            <table class="table">
+                        <table style="{{ $style['body_action'] }}" align="center" width="100%" cellpadding="0"
+                               cellspacing="0">
                 <thead class="thead-light">
                 <tr>
                     <th colspan="2">
-                        <h6>Estimated stand budget (Fixed/Lower limit to upper limit):</h6>
+                        <h2>Estimated stand budget (Fixed/Lower limit to upper limit):</h2>
                     </th>
                 </tr>
                 </thead>
@@ -451,7 +458,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @foreach($briefValue as $key => $data)
                     @if ($key === 'stand_budget')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 &nbsp;
                             </td>
                             <td align="left">
@@ -462,11 +469,12 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @endforeach
                 </tbody>
             </table>
-            <table class="table">
+                        <table style="{{ $style['body_action'] }}" align="center" width="100%" cellpadding="0"
+                               cellspacing="0">
                 <thead class="thead-light">
                 <tr>
                     <th colspan="2">
-                        <h6>Additional conditions or wishes:</h6>
+                        <h2>Additional conditions or wishes:</h2>
                     </th>
                 </tr>
                 </thead>
@@ -474,7 +482,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
                 @foreach($briefValue as $key => $data)
                     @if ($key === 'additional_conditions')
                         <tr>
-                            <td align="center">
+                            <td align="left">
                                 &nbsp;
                             </td>
                             <td align="left">
