@@ -50,16 +50,16 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
 <table width="100%" cellpadding="0" cellspacing="0">
     <tr>
         <td style="{{ $style['email-wrapper'] }}" align="center">
-            <table width="100%" cellpadding="0" cellspacing="0">
+            <table style="padding-left: 20px; padding-right: 20px" width="100%" cellpadding="0" cellspacing="0">
                 <!-- Logo -->
                 <tr>
                     <td style="{{ $style['email-masthead'] }}"><a
                             style="{{ $fontFamily }} {{ $style['email-masthead_name'] }}"
                             href="{{ url('/') }}" target="_blank"> <img
-                                src="{{ asset('/images/icons/logo.svg') }}" height="150px"/>
+                                src="{{ asset('/images/icons/logo.svg') }}" height="75px"/>
                             <!--{{ config('app.name') }}-->
                         </a><br/><br/>
-                        <div align="center">Company name: {{ $companyName }}</div>
+                        <div align="center"><h1>Request for stand design & production</h1></div>
                     </td>
                 </tr>
                 <!-- Email Body -->
