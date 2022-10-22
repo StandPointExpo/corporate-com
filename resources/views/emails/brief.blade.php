@@ -27,7 +27,7 @@ $style = [
     'email-footer' => 'width: auto; max-width: 570px; margin: 0 auto; padding: 0; text-align: center;',
     'email-footer_cell' => 'color: #AEAEAE; padding: 35px; text-align: center;',
     /* Body ------------------------------ */
-    'body_action' => 'width: 100%; margin: 30px auto; padding: 0; text-align: center;',
+    'body_action' => 'width: 100%; margin: 30px auto; padding-left: 20px; padding-right: 20px; text-align: center;',
     'body_sub' => 'margin-top: 25px; padding-top: 25px; border-top: 1px solid #EDEFF2;',
     /* Type ------------------------------ */
     'anchor' => 'color: #3869D4;',
@@ -50,7 +50,7 @@ text-align: center; text-decoration: none; -webkit-text-size-adjust: none;',
 <table width="100%" cellpadding="0" cellspacing="0">
     <tr>
         <td style="{{ $style['email-wrapper'] }}" align="center">
-            <table style="padding-left: 20px; padding-right: 20px" width="100%" cellpadding="0" cellspacing="0">
+            <table width="100%" cellpadding="0" cellspacing="0">
                 <!-- Logo -->
                 <tr>
                     <td style="{{ $style['email-masthead'] }}"><a
