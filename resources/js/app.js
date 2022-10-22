@@ -28,16 +28,19 @@ import InputRadio from "./components/Inputs/radio.vue";
 import InputEmail from "./components/Inputs/email.vue";
 import InputTextarea from "./components/Inputs/textarea.vue";
 
+import InfiniteLoading from 'vue-infinite-loading';
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
 import Headroom from "headroom.js";
 import LightBox from "lightbox2";
 import VueLazyLoad from "vue-lazyload";
 import VueAnalytics from "vue-analytics";
+
+Vue.use(InfiniteLoading);
 
 Vue.use(VueAnalytics, {
     id: "UA-158589039-1",
@@ -128,8 +131,8 @@ const app = new Vue({
             let matches = document.cookie.match(
                 new RegExp(
                     "(?:^|; )" +
-                        name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
-                        "=([^;]*)"
+                    name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+                    "=([^;]*)"
                 )
             );
             return matches ? decodeURIComponent(matches[1]) : undefined;
@@ -161,7 +164,7 @@ const app = new Vue({
     watch: {
         closePrivacyBlock: function () {
             if (this.closePrivacyBlock === true) {
-                this.setCookie("close_privacy", "true", { expires: 31536000 });
+                this.setCookie("close_privacy", "true", {expires: 31536000});
             } else {
                 this.deleteCookie("close_privacy");
             }

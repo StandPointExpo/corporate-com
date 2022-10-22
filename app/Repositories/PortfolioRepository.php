@@ -31,6 +31,14 @@ class PortfolioRepository
     /**
      * @return mixed
      */
+    public function getActivePaginate($page)
+    {
+        return Portfolio::active()->orderBy('updated_at', 'desc')->simplePaginate(16);
+    }
+
+    /**
+     * @return mixed
+     */
     public function preview()
     {
         return Portfolio::active()->inRandomOrder()->take(Portfolio::DEFAULT_PORTFOLIOS_NUMBER)->get();

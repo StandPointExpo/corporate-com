@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('web')->get(
+    '/portfolios', [\App\Http\Controllers\Api\PortfolioController::class, 'index']
+)->name('api.portfolios');
