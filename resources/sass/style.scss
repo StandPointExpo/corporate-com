@@ -1129,6 +1129,14 @@ body .required > label {
     min-height: 640px;
     max-height: 840px;
     display: flex;
+    &:after {
+        content: '';
+        height: 100%;
+        width: 100%;
+        background-color: $black;
+        position: absolute;
+        z-index: -1;
+    }
 }
 
 .description-company__posterimage {
@@ -1155,16 +1163,6 @@ body .required > label {
     width: 100%;
     z-index: -2;
     opacity: 0.4;
-
-    &:after {
-        content: '';
-        height: 100%;
-        width: 100%;
-        background-color: $black;
-        position: absolute;
-        z-index: -1;
-    }
-
     @media (max-width: 768px) {
         display: none;
     }
