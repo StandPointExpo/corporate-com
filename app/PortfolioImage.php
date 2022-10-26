@@ -49,6 +49,6 @@ class PortfolioImage extends Model
 
     public function scopeMainImage(Builder $query)
     {
-        return $query->where('is_main', true);
+        return $query->where('is_main', '=', 1);
     }
 }

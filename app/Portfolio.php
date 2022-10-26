@@ -32,7 +32,7 @@ class Portfolio extends Model
     public function getMainImageAttribute()
     {
         return $this->images()->count()
-            ? optional($this->images()->mainImage())->first()->file ?? $this->images()->first()->file
+            ? optional($this->images()->mainImage()->first())->file ?? $this->images()->first()->file
             : \Storage::url(self::DEFAULT_MAIN_IMAGE);
     }
 

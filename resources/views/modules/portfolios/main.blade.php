@@ -1,2 +1,2 @@
-<portfolio-component :portfolios="{{$portfolios}}"></portfolio-component>
+<portfolio-component :portfolios="{{json_encode($portfolios->items())}}" api="{{route('api.portfolios')}}"></portfolio-component>
 

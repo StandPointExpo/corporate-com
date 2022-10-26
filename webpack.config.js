@@ -1,9 +1,12 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
     resolve: {
+        fallback: {
+            stream: require.resolve("stream-browserify"),
+        },
         alias: {
-            '@': path.resolve('./resources/js'),
+            "@": path.resolve("./resources/js"),
         },
     },
-}
+};

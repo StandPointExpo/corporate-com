@@ -20,9 +20,9 @@ class PortfolioController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index($page = 1)
     {
-        $portfolios = $this->repository->allActive();
+        $portfolios = $this->repository->getActivePaginate($page);
         $contact = Contact::first();
         return view('portfolios', compact('portfolios', 'contact'));
     }

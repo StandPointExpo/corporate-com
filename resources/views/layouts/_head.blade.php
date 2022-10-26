@@ -10,6 +10,7 @@
     <meta property="og:description" content="@yield('pagename', __('main.description_title'))">
     <meta property="og:image" content="{{url('/')}}/images/icons/logo.svg">
     <meta name="facebook-domain-verification" content="pfvmp91e29x47ikhds3nzjmfuhsf9o" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -30,12 +31,8 @@
         }
     </script>
 
-
-    <!-- Core Scripts -->
-    <script src="{{ asset('js/app.js') }}?version=0.5v" defer></script>
-
     <!-- Core stylesheets -->
-    <link rel="stylesheet" href="{{URL::asset('css/app.css')}}?version=0.5v">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @stack('css')
 
 </head>

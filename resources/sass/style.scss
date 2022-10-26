@@ -224,7 +224,7 @@ body {
     min-height: 350px;
     background: url(/images/back_1.jpg) no-repeat;
     border-radius: 0;
-    margin-bottom: 25px;
+    margin-bottom: 0;
     padding-bottom: 1rem !important;
     background-attachment: fixed;
     background-size: cover;
@@ -428,13 +428,17 @@ body {
 
 .description-company {
     color: $text;
-    font-size: 18px;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    font-size: 16px;
+    /* padding-top: 5rem; */
+    /* padding-bottom: 5rem; */
+    justify-content: center;
+    align-self: center;
 
     p {
-        margin-top: 2.3rem;
-        margin-bottom: 1.3rem;
+        //margin-top: 2.3rem;
+        //margin-bottom: 1.3rem;
+        margin-top: 1.3rem;
+        margin-bottom: 1rem;
     }
 }
 
@@ -1091,4 +1095,72 @@ img[lazy=loaded] {
     color: $white;
     outline: 0;
     box-shadow: 0 0 0 0.2rem $corporate-light;
+}
+
+
+body .toast.toast-error .toast-header {
+    color: $red;
+    background-color: rgba(213, 41, 41, 0.322);
+}
+
+body .toast.toast-error {
+    color: $red;
+}
+
+body .required > label {
+    position: relative;
+
+    &:after {
+        position: relative;
+        content: '*';
+        color: $red;
+        margin: 0 0 0 5px;
+    }
+}
+
+.contact-brief-text {
+    text-align: center;
+    font-size: 34px;
+}
+
+.description-company-wrap {
+    position: relative;
+    height: calc(100vh);
+    min-height: 640px;
+    display: flex;
+}
+
+.description-company__posterimage {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    background: url(/posterimage.png);
+    @media (max-width: 768px) {
+        display: block;
+    }
+}
+.description-company__video {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.description-company__content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 70px 80px;
+    @media (max-width: 992px) {
+        padding: 25px;
+    }
 }

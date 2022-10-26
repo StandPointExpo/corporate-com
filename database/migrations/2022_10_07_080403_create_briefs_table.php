@@ -15,7 +15,12 @@ class CreateBriefsTable extends Migration
     {
         Schema::create('briefs', function (Blueprint $table) {
             $table->id();
-            $table->id();
+            $table->uuid('uuid');
+            $table->string('company_name');
+            $table->string('company_person');
+            $table->string('company_number');
+            $table->string('email')->nullable();
+            $table->json('value');
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,8 +11,21 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue()
-   .sass('resources/sass/app.scss', 'public/css');
+mix.js("resources/js/app.js", "public/js")
+    .vue({ version: 2 })
+    .sass("resources/sass/app.scss", "public/css")
+    .version();
+
+mix.webpackConfig({
+    resolve: {
+        fallback: {
+            zlib: require.resolve("browserify-zlib"),
+            stream: require.resolve("stream-browserify"),
+            https: require.resolve("https-browserify"),
+            http: require.resolve("stream-http"),
+        },
+    },
+});
 
 // mix.browserSync({
 //     open: false,

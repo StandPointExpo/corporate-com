@@ -3,12 +3,9 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+require("./bootstrap");
 
-import Vue from "vue";
-
-require('./bootstrap');
-
-window.Vue = Vue;
+const Vue = window.Vue;
 
 /**
  * The following block of code may be used to automatically register your
@@ -24,27 +21,35 @@ window.Vue = Vue;
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 // Vue.component('portfolio-component', require('./components/PortfolioComponent.vue').default);
 
-import PortfolioComponent from './components/PortfolioComponent.vue';
-import BriefCreateComponent from './components/BriefCreateComponent.vue';
+import PortfolioComponent from "./components/PortfolioComponent.vue";
+import BriefHeader from "./components/BriefHeader.vue";
+import InputText from "./components/Inputs/text.vue";
+import InputRadio from "./components/Inputs/radio.vue";
+import InputEmail from "./components/Inputs/email.vue";
+import InputTextarea from "./components/Inputs/textarea.vue";
+
+import InfiniteLoading from 'vue-infinite-loading';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+import Headroom from "headroom.js";
+import LightBox from "lightbox2";
+import VueLazyLoad from "vue-lazyload";
+import VueAnalytics from "vue-analytics";
 
-import Headroom from 'headroom.js';
-import LightBox from 'lightbox2';
-import VueLazyLoad from 'vue-lazyload';
-import VueAnalytics from 'vue-analytics'
+Vue.use(InfiniteLoading);
 
 Vue.use(VueAnalytics, {
-    id: 'UA-158589039-1'
-})
+    id: "UA-158589039-1",
+});
+
 Vue.use(VueLazyLoad, {
     preLoad: 1.3,
     attempt: 1,
-    loading: '/images/ajax-loader.gif',
+    loading: "/images/ajax-loader.gif",
     throttleWait: 500,
     // adapter: {
     //     loading (listender, Init) {
@@ -59,93 +64,110 @@ Vue.use(VueLazyLoad, {
 });
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
     components: {
-      'portfolio-component': PortfolioComponent,
-      'brief-create-component': BriefCreateComponent,
+        "portfolio-component": PortfolioComponent,
+        "brief-header": BriefHeader,
+        "input-text": InputText,
+        "input-radio": InputRadio,
+        "input-email": InputEmail,
+        "input-textarea": InputTextarea,
     },
-    data: function(){
+    data: function () {
         return {
             mobileMenu: false,
             langMenu: false,
-            closePrivacyBlock: false
-        }
+            closePrivacyBlock: false,
+        };
     },
-    mounted: function(){
-        let headerMenu  = document.querySelector('nav');
+    mounted: function () {
+        let headerMenu = document.querySelector("nav");
         let headroom = new Headroom(headerMenu, {
-            "offset": 105,
-            "tolerance": 5,
-            "classes": {
-                "initial": "headroom",
-                "pinned": "headroom--pinned",
-                "unpinned": "headroom--unpinned"
-            }
+            offset: 105,
+            tolerance: 5,
+            classes: {
+                initial: "headroom",
+                pinned: "headroom--pinned",
+                unpinned: "headroom--unpinned",
+            },
         });
         headroom.init();
 
         LightBox.option({
-            'resizeDuration': 200,
-            'wrapAround': false
-        })
+            resizeDuration: 200,
+            wrapAround: false,
+        });
     },
-    created: function(){
-        if(this.getCookie('close_privacy')) this.closePrivacyBlock = true;
+    created: function () {
+        console.log("vue init");
+        if (this.getCookie("close_privacy")) this.closePrivacyBlock = true;
     },
     methods: {
-        setCookie: function(name, value, props) {
-
-            props = props || {}
-            var exp = props.expires
+        setCookie: function (name, value, props) {
+            props = props || {};
+            var exp = props.expires;
             if (typeof exp == "number" && exp) {
-                var d = new Date()
-                d.setTime(d.getTime() + exp*1000)
-                exp = props.expires = d
+                var d = new Date();
+                d.setTime(d.getTime() + exp * 1000);
+                exp = props.expires = d;
             }
 
-            if(exp && exp.toUTCString) { props.expires = exp.toUTCString() }
-            value = encodeURIComponent(value)
-            var updatedCookie = name + "=" + value
-
-            for(var propName in props){
-                updatedCookie += "; " + propName
-                var propValue = props[propName]
-                if(propValue !== true){ updatedCookie += "=" + propValue }
+            if (exp && exp.toUTCString) {
+                props.expires = exp.toUTCString();
             }
-            document.cookie = updatedCookie
+            value = encodeURIComponent(value);
+            var updatedCookie = name + "=" + value;
+
+            for (var propName in props) {
+                updatedCookie += "; " + propName;
+                var propValue = props[propName];
+                if (propValue !== true) {
+                    updatedCookie += "=" + propValue;
+                }
+            }
+            document.cookie = updatedCookie;
         },
-        getCookie: function(name){
-            let matches = document.cookie.match(new RegExp(
-                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-            ));
+        getCookie: function (name) {
+            let matches = document.cookie.match(
+                new RegExp(
+                    "(?:^|; )" +
+                    name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+                    "=([^;]*)"
+                )
+            );
             return matches ? decodeURIComponent(matches[1]) : undefined;
         },
-        deleteCookie: function(name) {
+        deleteCookie: function (name) {
             this.setCookie(name, "", {
-                'max-age': -1
-            })
+                "max-age": -1,
+            });
         },
-        closePrivacyBlockAction: function(){
-            this.closePrivacyBlock = true
+        closePrivacyBlockAction: function () {
+            this.closePrivacyBlock = true;
         },
-        downloadPresentation(){
+        downloadPresentation() {
             this.$ga.event({
-                eventCategory: 'Presentation',
-                eventAction: 'download',
-                eventLabel: 'Standpoint Presentation'
-            })
-        }
+                eventCategory: "Presentation",
+                eventAction: "download",
+                eventLabel: "Standpoint Presentation",
+            });
+        },
 
+        downloadBrief() {
+            this.$ga.event({
+                eventCategory: "Brief",
+                eventAction: "download",
+                eventLabel: "Standpoint Brief",
+            });
+        },
     },
-    watch:{
-        closePrivacyBlock: function(){
-            if(this.closePrivacyBlock === true){
-                this.setCookie('close_privacy', 'true', {'expires': 31536000});
-            }else{
-                this.deleteCookie('close_privacy');
+    watch: {
+        closePrivacyBlock: function () {
+            if (this.closePrivacyBlock === true) {
+                this.setCookie("close_privacy", "true", {expires: 31536000});
+            } else {
+                this.deleteCookie("close_privacy");
             }
-        }
+        },
     },
 });
-
-

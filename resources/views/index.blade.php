@@ -64,19 +64,23 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row description-company-wrap">
+                <video class="description-company__video" autoplay muted="muted" loop="loop" src="{{url('/')}}/DSC_8713st02.mp4" poster="posterimage.png"></video>
                 <!-- Example row of columns -->
+                <div class="description-company__posterimage"></div>
                 <div class="container description-company">
-                    @foreach(optional($pageText)->articles ?? [] as $article)
-                        @if($article->name == \App\Article::TEXT_FIRST)
-                            {!! $article->text !!}
-                        @endif
-                    @endforeach
-                    <!-- <div class="download-presentation-block row">
+                    <div class="description-company__content">
+                        @foreach(optional($pageText)->articles ?? [] as $article)
+                            @if($article->name == \App\Article::TEXT_FIRST)
+                                {!! $article->text !!}
+                            @endif
+                        @endforeach
+                        <!-- <div class="download-presentation-block row">
                         <div class="col d-flex justify-content-center m-3">
                             <a href="{{url('/')}}/default/StandPoint-2020.pdf" class="btn btn-outline-warning custom-btn-outline-warning mt-3" download="StandPoint-2020" @click="downloadPresentation()"> @lang('ui.download_presentation') </a>
                         </div>
                     </div> -->
+                    </div>
                 </div>
 
             </div> <!-- /container -->

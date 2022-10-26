@@ -21,7 +21,7 @@
                     <p class="text-with-icon">
                         <img src="/images/icons/map_point.svg" class="footer-icon map_point">
                         {{--                        @lang('contacts.address') <br>@lang('contacts.address_landmark_footer')--}}
-                        @if(optional($contact->address))
+                        @if(!is_null(optional($contact)->address))
                             {!! $contact->address  !!}
                         @endif
                     </p>
@@ -31,7 +31,7 @@
                         <p class="text-with-icon"><img src="/images/icons/mail.svg" class="footer-icon mail"><a
                                 href="mailto:{{$contact->email}}">{{$contact->email}}</a></p>
                         <p class="text-with-icon"><img src="/images/icons/phone_2.svg" class="footer-icon phone_2">
-                            @if(optional($contact->phones) !== null)
+                            @if(optional($contact)->phones !== null)
                                 @foreach( $contact->phones as $key => $phone)
                                     <a href="tel:{{$phone->phone}}" class="big-phone">{{$phone->phone}}</a><br>
                                 @endforeach
@@ -43,10 +43,10 @@
                     <p class="social-icons">
                         <a href="https://www.facebook.com/Standpoint-229904720516883" target="_blank"><img
                                 src="/images/icons/fb.svg"></a>
-                        <a href="#" target="_blank"><img src="/images/icons/tw.svg"></a>
-                        <a href="#" target="_blank"><img src="/images/icons/linkedin.svg"></a>
+{{--                        <a href="#" target="_blank"><img src="/images/icons/tw.svg"></a>--}}
+{{--                        <a href="#" target="_blank"><img src="/images/icons/linkedin.svg"></a>--}}
+                        <a href="{{url('/')}}">{{url('/')}}</a>
                     </p>
-                    <p><a href="{{url('/')}}">{{url('/')}}</a></p>
                 </div>
             </div>
         </div>
