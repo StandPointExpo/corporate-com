@@ -1125,8 +1125,9 @@ body .required > label {
 
 .description-company-wrap {
     position: relative;
-    height: calc(100vh);
+    height: calc(62vh);
     min-height: 640px;
+    max-height: 840px;
     display: flex;
 }
 
@@ -1144,14 +1145,26 @@ body .required > label {
         display: block;
     }
 }
+
 .description-company__video {
-    position: absolute;
-    width: 100%;
     height: auto;
-    z-index: -1;
-    top: 0;
     left: 0;
     min-height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -2;
+    opacity: 0.4;
+
+    &:after {
+        content: '';
+        height: 100%;
+        width: 100%;
+        background-color: $black;
+        position: absolute;
+        z-index: -1;
+    }
+
     @media (max-width: 768px) {
         display: none;
     }
