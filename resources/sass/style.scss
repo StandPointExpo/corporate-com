@@ -1148,6 +1148,7 @@ body .required > label {
     top: 0;
     left: 0;
     min-height: 100%;
+    opacity: 0.4;
     background: url(/posterimage.png);
     @media (max-width: 768px) {
         display: block;
