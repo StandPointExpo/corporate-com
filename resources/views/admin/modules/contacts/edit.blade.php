@@ -42,7 +42,7 @@
 
                         @component('admin.components._group', ['el' => 'language_id'])
                             {{ Form::label('language_id', 'Язык страницы') }}
-                            {{ Form::select('language_id', \App\Language::languages(), null, ['class' => 'form-control', 'id' => 'language_id']) }}
+                            {{ Form::select('language_id', \App\Language::languages(), $contact->language->id, ['class' => 'form-control', 'id' => 'language_id']) }}
                         @endcomponent
                 </div>
 
