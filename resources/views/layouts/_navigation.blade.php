@@ -33,7 +33,7 @@
                 @endif
             </div>
             <div class="form-inline lang-menu col-2">
-{{--                @include('layouts._nav-language')--}}
+                @include('layouts._nav-language')
             </div>
         </div>
     </div>

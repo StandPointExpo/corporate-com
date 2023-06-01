@@ -62,12 +62,12 @@ class PortfolioImageObserver
 
     /**
      * @param $storage_path
-     * @param null $width
-     * @param null $height
+     * @param string|null $width
+     * @param string|null $height
      * @param $portfolioImage
      * @return string
      */
-    protected function imageResizeAndSave($storage_path, $width = null, $height = null, $portfolioImage)
+    protected function imageResizeAndSave($storage_path, string $width=null, string $height=null, $portfolioImage)
     {
         $path       = asset($storage_path);
         $filename   = sprintf('preview_%d_%s', time(), basename($path));

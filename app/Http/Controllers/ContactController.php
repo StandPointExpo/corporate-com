@@ -13,7 +13,11 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contact = Contact::first();
+        $lang = app()->getLocale();
+
+        $contact = Contact::whereHas('language', function ($query) use ($lang) {
+            $query->where('name', $lang);
+        })->latest()->first();
 
         return view('contacts', compact('contact'));
     }

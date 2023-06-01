@@ -28,12 +28,16 @@ class MainController extends Controller
      */
     public function index()
     {
+        $lang = app()->getLocale();
         $portfolios         = $this->portfolioRepository->allActive();
         $previewPortfolios  = $this->portfolioRepository->preview();
         $frontPortfolios    = $this->portfolioRepository->frontPreview();
         $pageText           = $this->pageRepository->mainPage();
         $partners           = Partner::all();
-        $contact           = Contact::first();
+
+        $contact = Contact::whereHas('language', function ($query) use ($lang) {
+            $query->where('name', $lang);
+        })->latest()->first();
 
         return view('index', compact('pageText', 'frontPortfolios', 'partners', 'contact'));
     }

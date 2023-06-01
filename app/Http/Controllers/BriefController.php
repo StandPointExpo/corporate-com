@@ -17,8 +17,8 @@ class BriefController extends Controller
         $contact = Contact::first();
         if(is_null($contact)) {
             $contact = [];
-            $contact['email'] = 'our.team@standpoint-expo.com';
-            $contact['phone'] = '+49 151 11065913';
+            $contact['email'] = '';
+            $contact['phone'] = '';
         };
 
         return view('briefs.create', compact('contact', 'phones'));
