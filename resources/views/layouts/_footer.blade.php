@@ -26,10 +26,10 @@
                         @endif
                     </p>
                 </div>
-                @if($contact !== null)
+                @if(!empty($contact))
                     <div class="col-sm-12 col-lg-4 col-md-3">
                         <p class="text-with-icon"><img src="/images/icons/mail.svg" class="footer-icon mail"><a
-                                href="mailto:{{$contact->email}}">{{$contact->email}}</a></p>
+                                href="mailto:{{optional($contact)->email}}">{{optional($contact)->email}}</a></p>
                         <p class="text-with-icon"><img src="/images/icons/phone_2.svg" class="footer-icon phone_2">
                             @if(optional($contact)->phones !== null)
                                 @foreach( $contact->phones as $key => $phone)

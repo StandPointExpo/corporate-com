@@ -23,7 +23,7 @@
             </div>
             <div class="form-inline my-0 phones-menu col-md-4 col-xl-4 col-10 justify-content-sm-start justify-content-md-end">
                 <img src="/images/icons/phone_1.svg">
-                @if(isset($contact) && $contact != null)
+                @if(isset($contact) && $contact != null && isset($contact->phones))
                         @foreach($contact->phones as $key => $phone)
                             @if($loop->even)
                                 ,&nbsp;
