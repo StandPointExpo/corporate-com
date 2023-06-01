@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 /logs
+/public
 /public/js
 /public/js/app.js
 /public/css/
